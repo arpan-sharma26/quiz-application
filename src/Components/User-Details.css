@@ -1,0 +1,11 @@
+#block-1601409060138 .btn {
+    border-color: #ffc501;
+    border-radius: 10px;
+    background: #ffc501;
+    color: #ffffff;
+  }
+
+  #block-1601409060138 .btn--outline {
+    background: transparent;
+    color: #ffc501;
+  }

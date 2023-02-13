@@ -1,0 +1,44 @@
+#section-1619119305762 {
+    background-image: url(https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/themes/2147763718/settings_images/QuogrrJBS32HkKaEA4gI_Copy_of_Copy_of_Copy_of_Home_Page_Hero_4.6.png);
+    background-position: center;
+  }
+
+/* #section-1619119305762 .section {
+  background-color: ;
+} */
+#section-1619119305762 .sizer {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+#section-1619119305762 .container {
+  max-width: calc(1260px + 10px + 10px);
+  padding-right: 10px;
+  padding-left: 10px;
+  
+}
+/* #section-1619119305762 .row {
+  
+} */
+
+#section-1619119305762 .container--full {
+  max-width: calc(100% + 10px + 10px);
+}
+@media (min-width: 768px) {
+  
+    /* #section-1619119305762 {
+      
+    } */
+  
+  #section-1619119305762 .sizer {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  #section-1619119305762 .container {
+    max-width: calc(1260px + 40px + 40px);
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+  #section-1619119305762 .container--full {
+    max-width: calc(100% + 40px + 40px);
+  }
+}

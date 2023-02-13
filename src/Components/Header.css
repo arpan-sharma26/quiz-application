@@ -1,0 +1,27 @@
+.buy-books:hover{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.removeDecoration{
+    font-family: 'Montserrat';
+    color: gray !important;
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none !important;
+}
+
+.logo{
+    width: 100%;
+    opacity: 1; 
+}
+
+.logo:hover{
+    opacity: 0.8;
+    cursor: pointer;
+};
+
+.makePointer:hover{
+    cursor: pointer;
+}

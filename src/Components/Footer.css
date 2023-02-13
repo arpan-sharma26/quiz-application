@@ -1,0 +1,136 @@
+#section-footer {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .footer {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+  }
+
+  .footer, .footer__block {
+    font-size: 16px;
+    /* background-color: #01aeb4; */
+  }
+
+  .footer .link-list__links {
+    width: 100%;
+    background-color:white !important;
+  }
+  @media (min-width: 768px) {
+    .footer, .footer__block {
+      font-size: 18px;
+    }
+  }
+  .powered-by {
+    background-color: #01aeb4;
+  }
+  .powered-by a {
+    color: #7f8ea1;
+  }
+
+  #block-1555988519593 {
+    line-height: 1;
+  }
+  #block-1555988519593 .logo__image {
+    display: block;
+    width: 200px;
+  }
+
+    /* flush setting */
+  
+  /* margin settings */
+  #block-1607561038072 {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+  #block-1607561038072 .block {
+    /* border settings */
+    border: 4px  black;
+    border-radius: 4px;
+    /* background color */
+    
+    /* default padding for mobile */
+    
+      padding: 20px;
+    
+    
+      padding: 20px;
+    
+    
+      
+        padding: 20px;
+      
+    
+    /* mobile padding overrides */
+    
+    
+      padding-top: 0px;
+    
+    
+      padding-right: 0px;
+    
+    
+      padding-bottom: 0px;
+    
+    
+      padding-left: 0px;
+    
+  }
+
+  @media (min-width: 768px) {
+    /* desktop margin settings */
+    #block-1607561038072 {
+      margin-top: 0px;
+      margin-right: 0px;
+      margin-bottom: 0px;
+      margin-left: 0px;
+    }
+    #block-1607561038072 .block {
+      /* default padding for desktop  */
+      
+        padding: 30px;
+      
+      
+        
+          padding: 30px;
+        
+      
+      /* desktop padding overrides */
+      
+      
+        padding-top: 0px;
+      
+      
+        padding-right: 0px;
+      
+      
+        padding-bottom: 0px;
+      
+      
+        padding-left: 0px;
+      
+    }
+  }
+  /* mobile text align */
+  @media (max-width: 767px) {
+    #block-1607561038072 {
+      text-align: center;
+    }
+  }
+  .social-icons--1607561009889.social-icons--round .social-icons__icon {
+    background-color: #9cb1a9;
+  }
+  .social-icons--1607561009889.social-icons--square .social-icons__icon {
+    background-color: #9cb1a9;
+  }
+
+  .colorChange{
+    font-size: 2rem;
+  }
