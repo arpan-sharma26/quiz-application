@@ -162,7 +162,6 @@ const UserDetails = () => {
                     </Grid>
                 </Grid>
             </motion.div>}
-            {slideNo}
         </ThemeProvider>
     );
 }

@@ -16,7 +16,7 @@ const SliderForQuestions = (props) => {
         dispatch(actions.updateSliderValue({slideNo, value: 1}));
     }else{
         // eslint-disable-next-line no-unused-expressions
-        assignValue = sliderValue[slideNo];
+        assignValue = sliderValue[slideNo] || 0;
     }
 
     const customValues = [
