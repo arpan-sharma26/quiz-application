@@ -32,7 +32,7 @@ const Questions = (props) => {
                 return (
                     <Typography variant='h6' align='left' sx={{ marginLeft: 15, marginBottom: 2 }} className='ques'>{element}</Typography>
                 )
-            })};
+            })}
             <SliderForQuestions slideNo={slideNo} value={sliderValue}/>
             <br/>
             <br/>
