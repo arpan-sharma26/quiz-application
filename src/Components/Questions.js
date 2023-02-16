@@ -1,5 +1,5 @@
 import { Button, Grid, Typography } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SliderForQuestions from './SliderForQuestions';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../store';
@@ -10,6 +10,9 @@ const Questions = (props) => {
     const slideNo = props.slideNo;
     const statement = props.statements[slideNo];
     const sliderValue = useSelector(state => state.sliderValues);
+
+    const [color, setColor] = useState("");
+
     let ifBackButtonDisabled = false;
 
     if(slideNo === 1){
@@ -24,12 +27,22 @@ const Questions = (props) => {
         dispatch(actions.increaseCount());
     };
 
+    useEffect(()=>{
+        if (slideNo === 1 || slideNo === 4 || slideNo === 7)
+            setColor("#05BDC9");
+        else if (slideNo === 2 || slideNo === 5 || slideNo === 8)
+            setColor("#D54B6C");
+        else
+            setColor("#FBCA1F");
+    }, [slideNo])
+
+
     return (
         <>
             <Typography className='text-font' sx={{ m: 8 }} align='left' variant='h3'>{`${slideNo}.`} {props.blocks[slideNo-1]}</Typography>
             {statement.map((element, index) => {
                 return (
-                    <Typography key={index} variant='h6' align='left' sx={{ marginLeft: 15, marginBottom: 2 }} className='ques'>{element}</Typography>
+                    <Typography key={index} variant='h6' align='left' sx={{ marginLeft: 15, marginBottom: 2 }} style={{color: color}}>{element}</Typography>
                 )
             })}
             <SliderForQuestions slideNo={slideNo} value={sliderValue}/>

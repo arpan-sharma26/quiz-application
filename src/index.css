@@ -1,25 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital@1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Rubik:ital@1&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 
 .font-heading{
-  font-family: 'Bungee Spice', cursive !important;
+  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Bungee Spice', cursive !important; */
   font-size: 2rem !important;
 }
 
 .font-quiz{
-  font-family: 'Rubik', sans-serif !important;
+  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Rubik', sans-serif !important; */
   font-size: 4rem !important;
 }
 
 .text-font{
-  font-family: 'Rubik', sans-serif !important;
+  font-family: 'Montserrat', sans-serif !important;
+  /* font-family: 'Rubik', sans-serif !important; */
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
+  font-family: 'Montserrat', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
