@@ -32,46 +32,39 @@ const QuizResult = () => {
             `I am afraid of both success and failure.`,
             `I delay taking action on things that bring me more income.`,
             `This blocks the flow of wealth because we are losing out on time, which is one of the most powerful factors that allows money to compound.`,
-            `To learn more about your block, and how to heal it, order your copy of Naked Money Meetings, today.`
         ],
 
         "The Lack Block": [
             `I never have enough.`,
             `This mentality blocks the flow of wealth to your life because you struggle with receiving.`,
-            `To learn more about your block, and how to heal it, order your copy of Naked Money Meetings, today.`
         ],
 
         "The Spend Block": [
             `I can’t control my spending, or the minute I receive money I repel it and give it away.`,
             `This mentality blocks the flow of wealth to your life because you are consistently taking action that opposes financial accumulation.`,
-            `To learn more about your block, and how to heal it, order your copy of Naked Money Meetings, today.`
         ],
 
         "The Worthiness Block": [
             `I’m not good enough to be wealthy.`,
             `This mentality blocks the flow of wealth because life doesn’t give us what we need; it gives us what we believe we deserve.`,
             `And if we don’t believe that we are deserving, then we won’t plant the seeds of success in our life today so that we can reap the harvest later.`,
-            `To learn more about your block, and how to heal it, order your copy of Naked Money Meetings, today.`
         ],
 
         "The Intelligence and Skill Block": [
             `I’m not smart enough to be wealthy.`,
             `This mentality blocks the flow of wealth because you often live in the land of “When I [get a job/get a bonus/win the lottery], then I…,” meaning that, for you, money always exists only in the future.`,
-            `To learn more about your block, and how to heal it, order your copy of Naked Money Meetings, today.`
         ],
 
         "The Hard Work Block": [
             `In order to make money, I have to work really hard.`,
             `If it comes easily, it’s not worth it.`,
             `This blocks the flow of wealth because we are trading time for money, and unless we learn how to leverage that time, we will spend our one precious life exhausted and overworked.`,
-            `To learn more about your block, and how to heal it, order your copy of Naked Money Meetings, today.`
         ],
 
         "The Stress Block": [
             `Money is stressful.`,
             `Finances are stressful.`,
             `This blocks the flow of wealth to our lives because we believe that money circumstances are outside of our control, and we are now at the mercy of what happens to us.`,
-            `To learn more about your block, and how to heal it, order your copy of Naked Money Meetings, today.`
         ],
 
         "The Money Guilt Block": [

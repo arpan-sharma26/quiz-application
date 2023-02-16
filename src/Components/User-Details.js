@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
-import { Box, Button, FormControl, TextField, ThemeProvider, Typography, createTheme, Card, CardActionArea, CardMedia, CardContent, CardActions, FormHelperText } from '@mui/material';
+import { Box, Button, FormControl, TextField, ThemeProvider, Typography, createTheme, Card, CardActionArea, CardMedia, CardContent, CardActions } from '@mui/material';
 import erinImage from '../Images/erinImage.jpg';
 import resource from '../Images/resource.png';
 import './User-Details.css';
@@ -147,16 +147,16 @@ const UserDetails = () => {
                     <Grid item xs={12} md={4}>
                         <form onSubmit={startQuizHandler}>
                             <FormControl sx={{ m: 10, width: '60%' }}>
-                                <Typography sx={{ marginBottom: 1, color: 'gray' }} align='left'>First Name</Typography>
+                                <Typography sx={{ marginBottom: 1, color: 'gray', marginTop: 12 }} align='left'>First Name</Typography>
                                 <TextField required id='first-name' placeholder='Enter first name' />
                                 <br />
                                 <Typography sx={{ marginBottom: 1, color: 'gray' }} align='left'>Last Name</Typography>
                                 <TextField required id='last-name' placeholder='Enter last name' />
                                 <br />
-                                <Typography sx={{ marginBottom: 1, color: 'gray' }} align='left'>E-mail</Typography>
+                                {/* <Typography sx={{ marginBottom: 1, color: 'gray' }} align='left'>E-mail</Typography>
                                 <TextField required id='e-mail' type='email' placeholder='Enter e-mail' />
                                 <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
-                                <br />
+                                <br /> */}
                                 <br />
                                 <Button size="large" type='submit' variant='contained'>START QUIZ</Button>
                                 <br />
