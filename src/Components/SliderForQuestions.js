@@ -13,10 +13,10 @@ const SliderForQuestions = (props) => {
     const sliderValue = useSelector(state => state.sliderValues);
     let assignValue;
     if(sliderValue.length === 0 || sliderValue[slideNo] === undefined){
-        dispatch(actions.updateSliderValue({slideNo, value: 1}));
+        dispatch(actions.updateSliderValue({slideNo, value: 5}));
     }else{
         // eslint-disable-next-line no-unused-expressions
-        assignValue = sliderValue[slideNo] || 0;
+        assignValue = sliderValue[slideNo] || 5;
     }
 
     const customValues = [
@@ -37,7 +37,27 @@ const SliderForQuestions = (props) => {
             label: '',
         },
         {
-            value: '5',
+            value: 5,
+            label: '',
+        },
+        {
+            value: 6,
+            label: '',
+        },
+        {
+            value: 7,
+            label: '',
+        },
+        {
+            value: 8,
+            label: '',
+        },
+        {
+            value: 9,
+            label: '',
+        },
+        {
+            value: 10,
             label: 'yes, I identify with this.',
         },
     ];
@@ -49,7 +69,7 @@ const SliderForQuestions = (props) => {
             step={1}
             min={1}
             valueLabelDisplay='auto'
-            max={5}
+            max={10}
             marks = {customValues}
             value={assignValue}
             onChange={changeSliderValue}

@@ -19,10 +19,10 @@ const theme = createTheme({
 const Footer = () => {
     return (
         <ThemeProvider theme={theme}>
-            <Grid backgroundColor='primary.main' container='true'>
+            <Grid backgroundColor='primary.main' container={true}>
                 <Grid xs={12} md={3}>
                     <Box sx={{ width: '70%', ml: 7, mt:4, mb:3 }} >
-                        <Link href='https://www.erinskyekelly.com/'><img src={Logo1} className='logo' alt="brand-logo" /></Link>
+                        <Link href='https://www.erinskyekelly.com/'><img src={Logo1} className='logo1' alt="brand-logo" /></Link>
                     </Box>
                 </Grid>
                 <Grid sx={{ mt: 5 }} xs={12} md={6}>

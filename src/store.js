@@ -4,7 +4,18 @@ const animationSlice = createSlice({
     name: 'animationSlice',
     initialState: {
         slideNo: 0,
-        sliderValues: []
+        sliderValues: [],
+        moneyBlocks: [
+            "The Lack Block",
+            "The Spend Block",
+            "The Worthiness Block",
+            "The Intelligence and Skill Block",
+            "The Hard Work Block",
+            "The Stress Block",
+            "The Procrastination Block",
+            "The Money Guilt Block"
+        ],
+        dialog: true
     },
     reducers: {
         increaseCount(state) {
@@ -18,11 +29,15 @@ const animationSlice = createSlice({
         },
         resetValues(state){
             state.sliderValues = [];
+        },
+        dialogTrigger(state){
+            state.dialog = false
         }
     }
 });
 
 export const actions = animationSlice.actions;
+
 const store = configureStore({
     reducer: animationSlice.reducer,
 });

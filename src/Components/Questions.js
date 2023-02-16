@@ -10,38 +10,37 @@ const Questions = (props) => {
     const slideNo = props.slideNo;
     const statement = props.statements[slideNo];
     const sliderValue = useSelector(state => state.sliderValues);
+    let ifBackButtonDisabled = false;
 
-    const buttonStyle = {
-        color: 'white'
-    };
+    if(slideNo === 1){
+        ifBackButtonDisabled = true;
+    }
 
     const backButtonHandler = () => {
         dispatch(actions.decrementCount());
-        
     };
 
     const nextButtonHandler = () => {
         dispatch(actions.increaseCount());
-        
     };
 
     return (
         <>
             <Typography className='text-font' sx={{ m: 8 }} align='left' variant='h3'>{`${slideNo}.`} {props.blocks[slideNo-1]}</Typography>
-            {statement.map(element => {
+            {statement.map((element, index) => {
                 return (
-                    <Typography variant='h6' align='left' sx={{ marginLeft: 15, marginBottom: 2 }} className='ques'>{element}</Typography>
+                    <Typography key={index} variant='h6' align='left' sx={{ marginLeft: 15, marginBottom: 2 }} className='ques'>{element}</Typography>
                 )
             })}
             <SliderForQuestions slideNo={slideNo} value={sliderValue}/>
             <br/>
             <br/>
-            <Grid container='true'>
-                <Grid xs={6}>
-                    <Button onClick={backButtonHandler} size='large' variant='contained' sx={buttonStyle}>Back</Button>
+            <Grid item sx={{mb: 10}} container={true}>
+                <Grid item xs={6}>
+                    <Button disabled={ifBackButtonDisabled} onClick={backButtonHandler} size='large' variant='contained'>Back</Button>
                 </Grid>
-                <Grid xs={6}>
-                    <Button size='large' variant='outlined' onClick={nextButtonHandler}>Next Question</Button>
+                <Grid item xs={6}>
+                    <Button size='large' variant='contained' onClick={nextButtonHandler}>Next Question</Button>
                 </Grid>
             </Grid>
 
