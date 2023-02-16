@@ -17,31 +17,6 @@ const theme = createTheme({
 });
 
 const Header = () => {
-    // const [course, setCourse] = useState(null);
-    // const [freeStuff, setFreeStuff] = useState(null);
-
-    // const [menuOpen, setMenuOpen] = useState(false);
-    // const [menuFreeOpen, setFreeMenuOpen] = useState(false);
-
-    // const closeMenuHandler = () => {
-    //     setCourse(null);
-    //     setMenuOpen(false);
-    // }
-
-    // const onButtonClick = (event) => {
-    //     setCourse(event.currentTarget);
-    //     setMenuOpen(true);
-    // }
-
-    // const onFreeButtonClick = (event) => {
-    //     setFreeStuff(event.currentTarget);
-    //     setFreeMenuOpen(true);
-    // }
-
-    // const closeFreeMenuHandler = () => {
-    //     setFreeStuff(null);
-    //     setFreeMenuOpen(false);
-    // }
 
     return (
         <ThemeProvider theme={theme}>
