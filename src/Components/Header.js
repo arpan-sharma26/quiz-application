@@ -45,21 +45,18 @@ const Header = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <Grid container={true}>
+            <Grid justifyContent="center" container={true}>
                 <Grid xs={12}>
                     <Box backgroundColor='primary.main'>
                         <Link className='buy-books' href="https://www.erinskyekelly.com/get-the-hell-out-of-debt-book-2021" variant='h6' style={{ color: 'white' }}>ORDER ERIN'S BOOK HERE!</Link>
                     </Box>
                 </Grid>
-                <Grid xs={12} >
+                <Grid xs={6} sx={{mt:4}}>
                     <Link href='https://www.erinskyekelly.com/'><img src={Logo} className='logo' alt="brand-logo" /></Link>
                 </Grid>
             </Grid>
-            {/* <Grid sx={{ marginTop: '60px', width: 200 }} container='true'>
-                
-            </Grid> */}
             <Grid container={true}>
-                <Grid xs={12} sx={{ marginTop: 5 }}>
+                <Grid xs={12} sx={{ marginTop: 2 }}>
                     <Typography className='font-heading'>Ready to identify your own personal money block?</Typography>
                     <Typography className='font-heading'>through</Typography>
                     <Typography className='font-quiz'>The Ultimate List of Ice Breaker Questions</Typography>
