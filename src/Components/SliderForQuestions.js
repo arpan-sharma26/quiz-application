@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Slider, Box } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../store';
@@ -6,18 +6,22 @@ import { actions } from '../store';
 const SliderForQuestions = (props) => {
     const slideNo = props.slideNo;
     const dispatch = useDispatch();
+
     const changeSliderValue = (event, value) => {
         dispatch(actions.updateSliderValue({slideNo, value}));
     };
 
     const sliderValue = useSelector(state => state.sliderValues);
-    let assignValue;
-    if(sliderValue.length === 0 || sliderValue[slideNo] === undefined){
-        dispatch(actions.updateSliderValue({slideNo, value: 5}));
-    }else{
-        // eslint-disable-next-line no-unused-expressions
-        assignValue = sliderValue[slideNo] || 5;
-    }
+    const [assignValue, setAssignValue] = useState(0);
+    
+    useEffect(() => {
+        if(sliderValue.length === 0 || sliderValue[slideNo] === undefined){
+            dispatch(actions.updateSliderValue({slideNo, value: 5}));
+        }else{
+            // eslint-disable-next-line no-unused-expressions
+            setAssignValue(sliderValue[slideNo] || 5);
+        }
+      }, [dispatch, slideNo, sliderValue]);
 
     const customValues = [
         {
