@@ -109,9 +109,9 @@ const QuizResult = () => {
                     <Button variant='contained' onClick={() => { setIfDialogOpen(false) }}>Proceed</Button>
                 </DialogActions>
             </Dialog>
-            <Grid justifyContent="center" spacing={2} container={true}>
-                <Grid item md={5}>
-                    <FormControl fullWidth>
+            <Grid justifyContent="center" spacing={4} container={true}>
+                <Grid item md={6}>
+                    <FormControl sx={{minWidth: 300}}>
                         <InputLabel variant='standard'>
                             Your Money Block
                         </InputLabel>
@@ -140,8 +140,8 @@ const QuizResult = () => {
                         }
                     </Box>
                 </Grid>
-                <Grid item md={5}>
-                    <FormControl fullWidth>
+                <Grid item md={6}>
+                    <FormControl sx={{minWidth: 300}}>
                         <InputLabel variant='standard'>
                             Partner's Money Block
                         </InputLabel>
