@@ -5,23 +5,20 @@ import { actions } from '../store';
 
 const SliderForQuestions = (props) => {
     const slideNo = props.slideNo;
+    const slideIndex = props.slideIndex;
     const dispatch = useDispatch();
-
-    const changeSliderValue = (event, value) => {
-        dispatch(actions.updateSliderValue({slideNo, value}));
-    };
-
     const sliderValue = useSelector(state => state.sliderValues);
     const [assignValue, setAssignValue] = useState(0);
+
+    const changeSliderValue = (event, value) => {
+        dispatch(actions.updateSliderValue({slideNo, value, slideIndex}));
+    };
     
     useEffect(() => {
-        if(sliderValue.length === 0 || sliderValue[slideNo] === undefined){
-            dispatch(actions.updateSliderValue({slideNo, value: 5}));
-        }else{
             // eslint-disable-next-line no-unused-expressions
-            setAssignValue(sliderValue[slideNo] || 5);
-        }
-      }, [dispatch, slideNo, sliderValue]);
+            setAssignValue(sliderValue[slideNo][slideIndex] || 5);
+        
+      }, [dispatch, slideNo, sliderValue, slideIndex]);
 
     const customValues = [
         {

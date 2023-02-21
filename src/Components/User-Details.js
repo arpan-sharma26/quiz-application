@@ -133,10 +133,6 @@ const UserDetails = () => {
         dispatch(actions.increaseCount());
     }
 
-    if(slideNo === 0){
-        dispatch(actions.resetValues());
-    }
-
     return (
         <ThemeProvider theme={theme}>
             {(slideNo < 1) && <motion.div initial={{ opacity: 1 }} animate={{ opacity: (slideNo !== 0 && rotate === true) ? 0 : 1, x: (slideNo !== 0 && rotate === true) ? -300 : 0 }}>

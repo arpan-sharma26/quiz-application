@@ -4,7 +4,39 @@ const animationSlice = createSlice({
     name: 'animationSlice',
     initialState: {
         slideNo: 0,
-        sliderValues: [],
+        sliderValues: [
+        {
+            1: null,
+        },
+        {
+            2: null,
+        },
+        {
+            3: null,
+        },
+        {
+            4: null,
+        },
+        {
+            5: null,
+        },
+        {
+            6: null,
+        },
+        {
+            7: null,
+        },
+        {
+            8: null,
+        },
+        {
+            9: null,
+        },
+        {
+            10: null,
+        }
+        ],
+        sliderIndex: 0,
         moneyBlocks: [
             "The Lack Block",
             "The Spend Block",
@@ -15,7 +47,8 @@ const animationSlice = createSlice({
             "The Procrastination Block",
             "The Money Guilt Block"
         ],
-        dialog: true
+        dialog: true,
+        totalValues : [null]
     },
     reducers: {
         increaseCount(state) {
@@ -25,13 +58,24 @@ const animationSlice = createSlice({
             state.slideNo--;
         },
         updateSliderValue(state, action) {
-            state.sliderValues[action.payload.slideNo] = (action.payload.value);
+            state.sliderValues[action.payload.slideNo][action.payload.slideIndex] = (action.payload.value);
         },
-        resetValues(state){
-            state.sliderValues = [];
+        reviewOptions(state, action){
+            for(let i=0; i<10; i++){
+                if(state.sliderValues[action.payload][i] === undefined || state.sliderValues[action.payload][i] === null){
+                    state.sliderValues[action.payload][i] = 5;
+                }
+            }
         },
-        dialogTrigger(state){
-            state.dialog = false
+        averageCalculations(state){
+            state.totalValues = [];
+            for(let i=1; i<9; i++){
+                let result = 0;
+                for (let j = 0; j < 10; j++) {
+                    result += state.sliderValues[i][j];
+                }
+                state.totalValues.push(result);
+            }
         }
     }
 });

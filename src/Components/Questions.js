@@ -23,8 +23,9 @@ const Questions = (props) => {
         dispatch(actions.decrementCount());
     };
 
-    const nextButtonHandler = () => {
+    const nextButtonHandler = (slideNo) => {
         dispatch(actions.increaseCount());
+        dispatch(actions.reviewOptions(slideNo));
     };
 
     useEffect(()=>{
@@ -42,10 +43,12 @@ const Questions = (props) => {
             <Typography className='text-font' sx={{ m: 8 }} align='left' variant='h3'>{`${slideNo}.`} {props.blocks[slideNo-1]}</Typography>
             {statement.map((element, index) => {
                 return (
-                    <Typography key={index} variant='h6' align='left' sx={{ marginLeft: 15, marginBottom: 2 }} style={{color: color}}>{element}</Typography>
+                    [
+                        <Typography key={index} variant='h6' align='left' sx={{ marginLeft: 15, marginBottom: 2 }} style={{color: color}}>{element}</Typography>,
+                        <SliderForQuestions key={index+=1} slideIndex={index} slideNo={slideNo} value={sliderValue}/>
+                    ]
                 )
             })}
-            <SliderForQuestions slideNo={slideNo} value={sliderValue}/>
             <br/>
             <br/>
             <Grid item sx={{mb: 10}} container={true}>
@@ -53,7 +56,7 @@ const Questions = (props) => {
                     <Button disabled={ifBackButtonDisabled} onClick={backButtonHandler} size='large' variant='contained'>Back</Button>
                 </Grid>
                 <Grid item xs={6}>
-                    <Button size='large' variant='contained' onClick={nextButtonHandler}>Next Question</Button>
+                    <Button size='large' variant='contained' onClick={()=> nextButtonHandler(slideNo)}>Next Question</Button>
                 </Grid>
             </Grid>
 

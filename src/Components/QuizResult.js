@@ -1,16 +1,23 @@
 import { FormControl, InputLabel, Select, MenuItem, Grid, Box, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { actions } from '../store';
 import { useSelector, useDispatch } from 'react-redux';
 
 const QuizResult = () => {
 
-    let sliderValues = useSelector((state) => state.sliderValues);
+    const dispatch = useDispatch();
+    
     let disableDropdown = false;
 
-    const highestValue = sliderValues.reduce((a, b) => { return Math.max(a, b) });
     const moneyBlocks = useSelector(state => state.moneyBlocks);
-    const ifDialogOpen = useSelector(state => state.dialog);
+    const [ifDialogOpen, setIfDialogOpen] = useState(true);
+    const totalValues = useSelector(state => state.totalValues);
+
+    useEffect(() => {
+        dispatch(actions.averageCalculations());
+    }, [dispatch]);
+
+    const highestValue = totalValues.reduce((a, b) => { return Math.max(a, b) });
 
     let numberOfInstances = 0;
     let filteredMoneyBlocks = [];
@@ -19,12 +26,6 @@ const QuizResult = () => {
     let [spouseDropdownValue, setSpouseDropdownValue] = useState("");
     let [selfDescription, setSelfDescription] = useState("");
     let [spouseDescription, setSpouseDescription] = useState("");
-
-    const dispatch = useDispatch();
-
-    const closeDialog = () => {
-        dispatch(actions.dialogTrigger());
-    }
 
 
     let blocksDescription = [{
@@ -74,16 +75,10 @@ const QuizResult = () => {
         ]
     }]
 
-    for (let i = 1; i < sliderValues.length; i++) {
-        if (highestValue === sliderValues[i]) {
+    for (let i = 0; i < totalValues.length; i++) {
+        if (highestValue === totalValues[i]) {
             numberOfInstances++;
-            for (let j = 0; j < moneyBlocks.length; j++) {
-                let incrementedValue = j + 1;
-                // eslint-disable-next-line eqeqeq
-                if (incrementedValue == i) {
-                    filteredMoneyBlocks.push(moneyBlocks[j]);
-                }
-            }
+            filteredMoneyBlocks.push(moneyBlocks[i]);
         }
     }
 
@@ -103,7 +98,7 @@ const QuizResult = () => {
 
     return (
         <Box sx={{ m: 20 }}>
-            <Dialog fullWidth={true} maxWidth={"sm"} open={ifDialogOpen} onClose={closeDialog}>
+            <Dialog fullWidth={true} maxWidth={"sm"} open={ifDialogOpen} onClose={() => setIfDialogOpen(false)}>
                 <DialogTitle>Your Money Block: </DialogTitle>
                 <DialogContent>
                     <DialogContentText>
@@ -111,7 +106,7 @@ const QuizResult = () => {
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button variant='contained' onClick={closeDialog}>Proceed</Button>
+                    <Button variant='contained' onClick={() => { setIfDialogOpen(false) }}>Proceed</Button>
                 </DialogActions>
             </Dialog>
             <Grid justifyContent="center" spacing={2} container={true}>
