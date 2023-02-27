@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import { Box, Button, FormControl, TextField, ThemeProvider, Typography, createTheme, Card, CardActionArea, CardMedia, CardContent, CardActions } from '@mui/material';
 import erinImage from '../Images/erinImage.jpg';
-import resource from '../Images/resource.png';
+import resource from '../Images/naked_money_meetings.png';
 import './User-Details.css';
 import { motion } from "framer-motion";
 import { useSelector, useDispatch } from 'react-redux';
@@ -136,11 +136,11 @@ const UserDetails = () => {
     return (
         <ThemeProvider theme={theme}>
             {(slideNo < 1) && <motion.div initial={{ opacity: 1 }} animate={{ opacity: (slideNo !== 0 && rotate === true) ? 0 : 1, x: (slideNo !== 0 && rotate === true) ? -300 : 0 }}>
-                <Grid sx={{ marginTop: 4 }} container={true}>
+                <Grid alignItems="flex-end" sx={{ marginTop: 4 }} container={true}>
                     <Grid item xs={12} md={4}>
-                        <img width={'100%'} height={'100%'} src={erinImage} alt='erin'></img>
+                        <img width={'100%'} height={'85%'} src={erinImage} alt='erin'></img>
                     </Grid>
-                    <Grid item xs={12} md={4}>
+                    <Grid sx={{ marginBottom: 35 }} item xs={12} md={4}>
                         <form onSubmit={startQuizHandler}>
                             <FormControl sx={{ m: 10, width: '60%' }}>
                                 <Typography sx={{ marginBottom: 1, color: 'gray', marginTop: 12 }} align='left'>First Name</Typography>
@@ -149,10 +149,6 @@ const UserDetails = () => {
                                 <Typography sx={{ marginBottom: 1, color: 'gray' }} align='left'>Last Name</Typography>
                                 <TextField required id='last-name' placeholder='Enter last name' />
                                 <br />
-                                {/* <Typography sx={{ marginBottom: 1, color: 'gray' }} align='left'>E-mail</Typography>
-                                <TextField required id='e-mail' type='email' placeholder='Enter e-mail' />
-                                <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
-                                <br /> */}
                                 <br />
                                 <Button size="large" type='submit' variant='contained'>START QUIZ</Button>
                                 <br />
@@ -164,11 +160,11 @@ const UserDetails = () => {
                             <CardActionArea>
                                 <CardMedia component='img' height={'100%'} image={resource} />
                                 <CardContent>
-                                    <Typography sx={{ fontSize: 22 }}>Get financially organized.</Typography>
+                                    <Typography sx={{ fontSize: 22 }}>Pre-buy your copy today from your favorite online bookstore</Typography>
                                 </CardContent>
                                 <CardActions>
                                     <Box sx={{ width: '100%' }}>
-                                        <Button href='https://www.erinskyekelly.com/learn' size="large" style={{ marginBottom: 20 }} variant='contained' >Start Here!</Button>
+                                        <Button href='https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1' size="large" style={{ marginBottom: 20 }} variant='contained' >Start Here!</Button>
                                     </Box>
                                 </CardActions>
                             </CardActionArea>
@@ -190,7 +186,7 @@ const UserDetails = () => {
                                 </CardContent>
                                 <CardActions>
                                     <Box sx={{ width: '100%' }}>
-                                        <Button href='https://www.erinskyekelly.com/learn' size="large" style={{ marginBottom: 20 }} variant='contained' >Start Here!</Button>
+                                        <Button href='https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1' size="large" style={{ marginBottom: 20 }} variant='contained' >Start Here!</Button>
                                     </Box>
                                 </CardActions>
                             </CardActionArea>
@@ -212,7 +208,7 @@ const UserDetails = () => {
                                 </CardContent>
                                 <CardActions>
                                     <Box sx={{ width: '100%' }}>
-                                        <Button href='https://www.erinskyekelly.com/learn' size="large" style={{ marginBottom: 20 }} variant='contained' >Start Here!</Button>
+                                        <Button href='https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1' size="large" style={{ marginBottom: 20 }} variant='contained' >Start Here!</Button>
                                     </Box>
                                 </CardActions>
                             </CardActionArea>

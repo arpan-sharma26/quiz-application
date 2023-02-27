@@ -29,18 +29,17 @@ const Questions = (props) => {
     };
 
     useEffect(()=>{
-        if (slideNo === 1 || slideNo === 4 || slideNo === 7)
+        if (slideNo === 1 || slideNo === 3 || slideNo === 5 || slideNo === 7 || slideNo === 5)
             setColor("#05BDC9");
-        else if (slideNo === 2 || slideNo === 5 || slideNo === 8)
+        else if (slideNo === 2 || slideNo === 6 || slideNo === 4 || slideNo === 8)
             setColor("#D54B6C");
-        else
-            setColor("#FBCA1F");
     }, [slideNo])
 
 
     return (
         <>
-            <Typography className='text-font' sx={{ m: 8 }} align='left' variant='h3'>{`${slideNo}.`} {props.blocks[slideNo-1]}</Typography>
+        {/* {props.blocks[slideNo-1]} */}
+            <Typography className='text-font' sx={{ m: 8 }} align='left' variant='h3'>{`Money Block ${slideNo}`}</Typography>
             {statement.map((element, index) => {
                 return (
                     [
@@ -56,10 +55,10 @@ const Questions = (props) => {
                     <Button disabled={ifBackButtonDisabled} onClick={backButtonHandler} size='large' variant='contained'>Back</Button>
                 </Grid>
                 <Grid item xs={6}>
-                    <Button size='large' variant='contained' onClick={()=> nextButtonHandler(slideNo)}>Next Question</Button>
+                    <Button size='large' variant='contained' onClick={()=> nextButtonHandler(slideNo)}>{slideNo<8 ? `Next Question` : `Reveal your money block`}</Button>
                 </Grid>
             </Grid>
-
+            <Typography className='text-font' sx={{ m: 8 }} align='center' variant='h5'>{`${slideNo} of 8`}</Typography>
         </>
     );
 }

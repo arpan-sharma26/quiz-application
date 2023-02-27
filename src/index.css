@@ -8,7 +8,7 @@
 }
 
 .font-quiz{
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif !important;
   /* font-family: 'Rubik', sans-serif !important; */
   font-size: 4rem !important;
 }

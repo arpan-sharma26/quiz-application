@@ -23,7 +23,7 @@ const Header = () => {
             <Grid justifyContent="center" container={true}>
                 <Grid xs={12}>
                     <Box backgroundColor='primary.main'>
-                        <Link className='buy-books' href="https://www.erinskyekelly.com/get-the-hell-out-of-debt-book-2021" variant='h6' style={{ color: 'white' }}>ORDER ERIN'S BOOK HERE!</Link>
+                        <Link className='buy-books' href="https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1" variant='h6' style={{ color: 'white' }}>ORDER ERIN'S BOOK HERE!</Link>
                     </Box>
                 </Grid>
                 <Grid xs={6} sx={{mt:4}}>
@@ -32,9 +32,9 @@ const Header = () => {
             </Grid>
             <Grid container={true}>
                 <Grid xs={12} sx={{ marginTop: 2 }}>
-                    <Typography className='font-heading'>Ready to identify your own personal money block?</Typography>
-                    <Typography className='font-heading'>through</Typography>
-                    <Typography className='font-quiz'>The Ultimate List of Ice Breaker Questions</Typography>
+                    {/* <Typography className='font-heading'>What is your Money Block?</Typography>
+                    <Typography className='font-heading'>through</Typography> */}
+                    <Typography className='font-quiz'>What is your Money Block?</Typography>
                 </Grid>
             </Grid>
         </ThemeProvider>
