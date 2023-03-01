@@ -41,6 +41,7 @@ const QuizResult = () => {
     let [selfDescription, setSelfDescription] = useState("");
     let [spouseDescription, setSpouseDescription] = useState("");
 
+    const host = window.location.host;
 
     let blocksDescription = [{
         "The Procrastination Block-The Lack Block": [
@@ -590,7 +591,7 @@ const QuizResult = () => {
         event.preventDefault();
         setUserBookViewModal(true);
 
-        axios.post("http://localhost:5000/", {
+        axios.post(`http://${host}/`, {
             email
         }).then(function (response) {
             console.log(response);
