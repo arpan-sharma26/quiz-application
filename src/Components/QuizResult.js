@@ -6,10 +6,6 @@ import axios from 'axios';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
 
-// const api = axios.create({
-//     baseURL: `http://localhost:5000/send`
-// });
-
 const QuizResult = () => {
 
     const dispatch = useDispatch();
@@ -40,8 +36,6 @@ const QuizResult = () => {
 
     let [selfDescription, setSelfDescription] = useState("");
     let [spouseDescription, setSpouseDescription] = useState("");
-
-    // const host = window.location.host;
 
     let blocksDescription = [{
         "The Procrastination Block-The Lack Block": [
@@ -645,7 +639,7 @@ const QuizResult = () => {
                 <DialogTitle align="left">To heal your money blocks, pre-order your copy of <b>Naked Money Meetings</b> today.</DialogTitle>
                 <DialogContent align="right">
                     <a href="https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1">
-                        <Button>
+                        <Button variant="contained">
                             Learn more
                         </Button>
                     </a>
