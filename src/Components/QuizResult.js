@@ -658,9 +658,9 @@ const QuizResult = () => {
                 <DialogTitle align="left"> To heal your Money Blocks, <a href="https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1">pre-order your copy of Naked Money Meetings</a> today</DialogTitle>
                 <DialogContent align="right">
                     
-                        <Button variant="contained">
+                        {/* <Button variant="contained">
                             Learn more
-                        </Button>
+                        </Button> */}
                     
                 </DialogContent>
             </Dialog>
