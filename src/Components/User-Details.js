@@ -128,26 +128,41 @@ const UserDetails = () => {
         ],
     }
 
-    const startQuizHandler = () => {
+    const startQuizHandler = (event) => {
         setRotate(!rotate);
-        dispatch(actions.increaseCount());
+        dispatch(actions.increaseCount());   
+        const data = new FormData(event.target);
+        const value = Object.fromEntries(data.entries());
+        const name = value.firstname;
+        dispatch(actions.updateName(name));
     }
 
     return (
         <ThemeProvider theme={theme}>
+
+            {(slideNo < 1) && <Grid justifyContent="center" sx={{ marginTop: 10 }}>
+                <Typography sx={{ fontFamily: "'Montserrat', sans-serif !important;" }} variant="h4" >
+                    Take the FREE Naked Money Meetings online quiz to discover the naked truth about why you are unconsciously sabotaging your ability to build wealth.
+                    <br /><br />If you have a partner, send them the quiz to discover what is underneath all the layers of financial friction in your relationship. </Typography>
+                <br />
+                <Typography sx={{ fontFamily: "'Montserrat', sans-serif !important;" }} variant="h4">(It's like a Cosmo quiz, except the answer will change your life and you won't have to shell out cash for a push-up bra and itchy lace thong.)</Typography>
+                <br /><br />
+                <Typography sx={{ fontFamily: "'Montserrat', sans-serif !important;" }} variant="h4">Ready? You need 8 uninterrupted minutes.</Typography>
+            </Grid>}
+
             {(slideNo < 1) && <motion.div initial={{ opacity: 1 }} animate={{ opacity: (slideNo !== 0 && rotate === true) ? 0 : 1, x: (slideNo !== 0 && rotate === true) ? -300 : 0 }}>
-                <Grid alignItems="flex-end" sx={{ marginTop: 4 }} container={true}>
+                <Grid alignItems="center" justify="center" container={true}>
                     <Grid item xs={12} md={4}>
                         <img width={'100%'} height={'85%'} src={erinImage} alt='erin'></img>
                     </Grid>
-                    <Grid sx={{ marginBottom: 35 }} item xs={12} md={4}>
+                    <Grid sx={{ marginBottom: 30 }} item xs={12} md={4}>
                         <form onSubmit={startQuizHandler}>
-                            <FormControl sx={{ m: 10, width: '60%' }}>
+                            <FormControl sx={{ width: '60%' }}>
                                 <Typography sx={{ marginBottom: 1, color: 'gray', marginTop: 12 }} align='left'>First Name</Typography>
-                                <TextField required id='first-name' placeholder='Enter first name' />
+                                <TextField required id='first-name' name="firstname" placeholder='Enter first name' />
                                 <br />
                                 <Typography sx={{ marginBottom: 1, color: 'gray' }} align='left'>Last Name</Typography>
-                                <TextField required id='last-name' placeholder='Enter last name' />
+                                <TextField required id='last-name' name="lastname" placeholder='Enter last name' />
                                 <br />
                                 <br />
                                 <Button size="large" type='submit' variant='contained'>START QUIZ</Button>
@@ -156,7 +171,7 @@ const UserDetails = () => {
                         </form>
                     </Grid>
                     <Grid item xs={12} md={4}>
-                        <Card sx={{ m: 12, maxWidth: '70%' }}>
+                        <Card sx={{marginLeft:'15%', maxWidth: '70%' }}>
                             <CardActionArea>
                                 <CardMedia component='img' height={'100%'} image={resource} />
                                 <CardContent>
@@ -164,7 +179,7 @@ const UserDetails = () => {
                                 </CardContent>
                                 <CardActions>
                                     <Box sx={{ width: '100%' }}>
-                                        <Button href='https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1' size="large" style={{ marginBottom: 20 }} variant='contained' >Start Here!</Button>
+                                        <Button href='https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1' size="large" style={{ marginBottom: 20 }} variant='contained' >Purchase</Button>
                                     </Box>
                                 </CardActions>
                             </CardActionArea>
@@ -186,7 +201,7 @@ const UserDetails = () => {
                                 </CardContent>
                                 <CardActions>
                                     <Box sx={{ width: '100%' }}>
-                                        <Button href='https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1' size="large" style={{ marginBottom: 20 }} variant='contained' >Start Here!</Button>
+                                        <Button href='https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1' size="large" style={{ marginBottom: 20 }} variant='contained' >Purchase</Button>
                                     </Box>
                                 </CardActions>
                             </CardActionArea>
@@ -200,15 +215,15 @@ const UserDetails = () => {
                         <QuizResult />
                     </Grid>
                     <Grid item xs={12} md={4}>
-                        <Card sx={{ m: 12, maxWidth: '70%' }}>
+                        <Card sx={{marginLeft:'15%', maxWidth: '60%' }}>
                             <CardActionArea>
-                                <CardMedia component='img' height={'100%'} image={resource} />
+                                <CardMedia component='img' image={resource} />
                                 <CardContent>
                                     <Typography sx={{ fontSize: 22 }}>Get financially organized.</Typography>
                                 </CardContent>
                                 <CardActions>
                                     <Box sx={{ width: '100%' }}>
-                                        <Button href='https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1' size="large" style={{ marginBottom: 20 }} variant='contained' >Start Here!</Button>
+                                        <Button href='https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1' size="large" style={{ marginBottom: 20 }} variant='contained' >Purchase</Button>
                                     </Box>
                                 </CardActions>
                             </CardActionArea>

@@ -3,6 +3,7 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 const animationSlice = createSlice({
     name: 'animationSlice',
     initialState: {
+        firstName: "",
         slideNo: 0,
         sliderValues: [
         {
@@ -76,6 +77,9 @@ const animationSlice = createSlice({
                 }
                 state.totalValues.push(result);
             }
+        },
+        updateName(state, action){
+            state.firstName = action.payload;
         }
     }
 });

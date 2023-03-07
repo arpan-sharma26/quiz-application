@@ -55,7 +55,7 @@ const Questions = (props) => {
                     <Button disabled={ifBackButtonDisabled} onClick={backButtonHandler} size='large' variant='contained'>Back</Button>
                 </Grid>
                 <Grid item xs={6}>
-                    <Button size='large' variant='contained' onClick={()=> nextButtonHandler(slideNo)}>{slideNo<8 ? `Next Question` : `Reveal your money block`}</Button>
+                    <Button size='large' variant='contained' onClick={()=> nextButtonHandler(slideNo)}>{slideNo<8 ? `Next` : `Reveal your money block`}</Button>
                 </Grid>
             </Grid>
             <Typography className='text-font' sx={{ m: 8 }} align='center' variant='h5'>{`${slideNo} of 8`}</Typography>

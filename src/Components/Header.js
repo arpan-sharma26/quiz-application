@@ -30,7 +30,7 @@ const Header = () => {
                     <Link href='https://www.erinskyekelly.com/'><img src={Logo} className='logo' alt="brand-logo" /></Link>
                 </Grid>
             </Grid>
-            <Grid container={true}>
+            <Grid container={true} justifyContent="center">
                 <Grid xs={12} sx={{ marginTop: 2 }}>
                     {/* <Typography className='font-heading'>What is your Money Block?</Typography>
                     <Typography className='font-heading'>through</Typography> */}

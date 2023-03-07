@@ -1,4 +1,5 @@
-import { FormControl, InputLabel, Select, MenuItem, Grid, Box, Dialog, DialogTitle, DialogContent, CircularProgress, Typography, TextField, FormHelperText, Button, DialogActions } from '@mui/material';
+import { FormControl, InputLabel, Select, MenuItem, Grid, Box, Dialog, DialogTitle, 
+DialogContent, CircularProgress, Typography, TextField, FormHelperText, Button, DialogActions } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import { actions } from '../store';
 import { useSelector, useDispatch } from 'react-redux';
@@ -18,6 +19,7 @@ const QuizResult = () => {
     const [userBookViewModal, setUserBookViewModal] = useState(false);
     const totalValues = useSelector(state => state.totalValues);
     const [email, setEmail] = useState("");
+    const firstname = useSelector(state => state.firstName);
 
     useEffect(() => {
         window.setTimeout(() => {
@@ -560,6 +562,17 @@ const QuizResult = () => {
         ],
     }];
 
+    let blocksDesc = [{
+        "The Lack Block": `I never have enough. This mentality blocks the flow of wealth to your life because you struggle with receiving.`,
+        "The Spend Block": `I can't control my spending or the minute I receive money I repel it and give it away. This mentality blocks the flow of wealth to your life because you are consistently taking opposing action to financial accumulation.`,
+        "The Worthiness Block": `I'm not good enough to be wealthy. This mentality blocks the flow of wealth because life doesn’t give us what we need, it gives us what we deserve. And if we don’t believe we are deserving, we won’t plant the seeds of success in our life today to reap the harvest later.`,
+        "The Intelligence and Skill Block": `I'm not smart enough to be wealthy.  This mentality blocks the flow of wealth because you often live in the land of: "When I..." (get a job/bonus/win the lottery) "Then I..." which means money always exists only in the future.`,
+        "The Hard Work Block": `In order to make money I have to work really hard. If it comes easy it's not worth it. This blocks the flow of wealth because you are trading time for money, and unless we learn how to leverage that time, we will spend our one precious life exhausted and overworked.`,
+        "The Stress Block": `Money is stressful. Finances are stressful. This blocks the flow of wealth to our lives because we believe that money circumstances are outside of our control, and we are now at the mercy of what happens to us.`,
+        "The Procrastination Block": `I am afraid of both success and failure. I delay taking action on things that bring me more income. This blocks the flow of wealth because we are losing out on time, which is one of the most powerful factors that allows money to compound.`,
+        "The Money Guilt Block": `I feel guilty when I have money and other people are struggling. It feels greedy or unfair if I have money while other people are hurting financially. This blocks the flow of wealth because we believe that there is a finite amount of abundance.`
+    }];
+
     for (let i = 0; i < totalValues.length; i++) {
         if (highestValue === totalValues[i]) {
             numberOfInstances++;
@@ -584,9 +597,11 @@ const QuizResult = () => {
     const sendQuiz = (event) => {
         event.preventDefault();
         setUserBookViewModal(true);
-
+        // http://ec2-15-223-72-54.ca-central-1.compute.amazonaws.com:5000/
+        // http://localhost:5000/
         axios.post(`http://ec2-15-223-72-54.ca-central-1.compute.amazonaws.com:5000/`, {
-            email
+            email,
+            firstname
         }).then(function (response) {
             console.log(response);
         }).catch(function (error) {
@@ -600,29 +615,33 @@ const QuizResult = () => {
 
     return (
         // sx={{ m: 20 }}
-        <Box sx={{ marginLeft: "10%", marginTop: "5%" }}>
+        <Box sx={{ marginLeft: "1%", marginTop: "5%" }}>
             <Typography variant="h6"> <b>Steps to analyze your result.</b></Typography>
             <br />
+            {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}
             <Typography align='left' variant="h6">
                 <KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /> Choose your primary money block from the drop down menu. <br />
                 <KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /> Then choose your partner’s primary money block. <br />
                 <KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /> You’ll learn what is happening underneath the financial friction you might be feeling. <br />
-                <KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /> These represent the most common themes of the relationship combinations, but, as always, you &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; are two unique people who bring your unique personalities to create a unique relationship, and &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;you might find that your financial blocks show up in unique ways. <br />
+                <KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /> These represent the most common themes of the relationship combinations, but, as always, you are two unique people who bring your unique personalities to create a unique relationship, and you might find that your financial blocks show up in unique ways. <br />
                 <KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /> To heal your money blocks, pre-order your copy of Naked Money Meetings today.</Typography>
             <br />
             <br />
             {/* Revealing money blocks dialog box */}
             <Dialog fullWidth={true} maxWidth={"sm"} open={!ifDialogOpen && !ifRevealBlockOpen} >
-                <DialogTitle sx={{ marginLeft: "25%" }}>{filteredMoneyBlocks.length === 1 ? "Your Money Block is :-" : "Your Money Blocks are :-"}</DialogTitle>
+                <DialogTitle variant="h4" align="center">{filteredMoneyBlocks.length === 1 ? `${firstname}, Your Money Block is :` : `${firstname}, Your Money Blocks are :`}</DialogTitle>
                 <DialogContent>
                     {filteredMoneyBlocks.map((value, index) => {
                         let indexString = index.toString();
                         let valueString = value;
-                        return <Typography key={index} name={valueString} value={indexString}>{value}</Typography>
+                        return [
+                            <Typography variant="h5" key={index} name={valueString} value={indexString}>{value}</Typography>,
+                            <Typography variant="h7" key={index} name={valueString} value={indexString}><EmojiObjectsIcon sx={{ color: "#05BDC9" }} />{blocksDesc[0][value]}</Typography>
+                        ]
                     })}
                 </DialogContent>
                 <DialogActions>
-                    <Button size="large" variant='contained' onClick={() => setIfRevealBlockOpen(true)}>Proceed</Button>
+                    <Button size="large" variant='contained' sx={{marginRight: '5%', marginBottom: '2%'}} onClick={() => setIfRevealBlockOpen(true)}>Proceed</Button>
                 </DialogActions>
             </Dialog>
 
@@ -636,13 +655,13 @@ const QuizResult = () => {
 
             {/* last dialog box, for the user to view the book  */}
             <Dialog fullWidth={true} maxWidth={"sm"} open={userBookViewModal}>
-                <DialogTitle align="left">To heal your money blocks, pre-order your copy of <b>Naked Money Meetings</b> today.</DialogTitle>
+                <DialogTitle align="left"> To heal your Money Blocks, <a href="https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1">pre-order your copy of Naked Money Meetings</a> today</DialogTitle>
                 <DialogContent align="right">
-                    <a href="https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1">
+                    
                         <Button variant="contained">
                             Learn more
                         </Button>
-                    </a>
+                    
                 </DialogContent>
             </Dialog>
 
@@ -715,17 +734,23 @@ const QuizResult = () => {
                     </Typography>
                 }
             </Grid>
-            <Grid justifyContent="center" container={true}>
+            <Grid md={12} justifyContent="center">
                 <form onSubmit={sendQuiz}>
-                    <FormControl sx={{ marginTop: "20%" }}>
-                        <Typography>Send this quiz to your partner</Typography>
+                    <FormControl sx={{ marginTop: "5%", marginBottom: "5%"}}>
+                        <br/>
+                        <Typography variant="h4" sx={{ fontFamily: "'Montserrat', sans-serif !important;" }}>In a Relationship?</Typography>
+                        <br/><br/>
+                        <Grid alignItems="center" container={true}>
+                            <Grid md={6} xs={6}><Typography variant="h6" sx={{ fontFamily: "'Montserrat', sans-serif !important;", fontWeight: "bold", marginBottom: "5%" }}>Send this quiz to your partner</Typography></Grid>
+                            <Grid md={6} xs={6}>
+                                <TextField sx={{width: "95%"}} required type='email' placeholder='Enter e-mail' onChange={enterEmail}/>
+                                <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
+                            </Grid>
+                        </Grid>
+                        {/* <Typography sx={{ marginBottom: 1, color: 'gray' }} align='left'>E-mail</Typography> */}
                         <br />
-                        <Typography sx={{ marginBottom: 1, color: 'gray' }} align='left'>E-mail</Typography>
-                        <TextField required id='e-mail' type='email' placeholder='Enter e-mail' onChange={enterEmail} />
-                        <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
                         <br />
-                        <br />
-                        <Button size="large" type='submit' variant='contained'>SHARE QUIZ</Button>
+                        <Button sx={{width: "30%", marginLeft: "35%"}} size="large" type='submit' variant='contained'>SHARE QUIZ</Button>
                         <br />
                     </FormControl>
                 </form>
