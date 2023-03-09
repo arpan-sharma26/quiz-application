@@ -36,7 +36,7 @@ const Header = () => {
         setSendingEmail(true);
         // http://ec2-15-223-72-54.ca-central-1.compute.amazonaws.com:5000/
         // http://localhost:5000/
-        axios.post(`http://ec2-15-223-72-54.ca-central-1.compute.amazonaws.com:5000/`, {
+        axios.post(`http://localhost:5000/`, {
             email,
             firstname
         }).then(function (response) {
@@ -98,7 +98,7 @@ const Header = () => {
 
 
             {/* last dialog box, for the user to view the book  */}
-            <Dialog fullWidth={true} maxWidth={"sm"} open={userBookViewModal}>
+            <Dialog fullWidth={true} maxWidth={"sm"} open={userBookViewModal} onClose={()=>{setUserBookViewModal(false)}}>
                 <DialogTitle align="left"> To heal your Money Blocks, <Link style={{color:'blue'}} onClick={()=> {setUserBookViewModal(false)}} target="_blank" href="https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1">pre-order your copy of Naked Money Meetings</Link> today</DialogTitle>
                 <DialogContent align="right">
 
