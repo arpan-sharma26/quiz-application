@@ -36,7 +36,7 @@ const Header = () => {
         setSendingEmail(true);
         // http://ec2-15-223-72-54.ca-central-1.compute.amazonaws.com:5000/
         // http://localhost:5000/
-        axios.post(`http://localhost:5000/`, {
+        axios.post(`http://ec2-15-223-72-54.ca-central-1.compute.amazonaws.com:5000/`, {
             email,
             firstname
         }).then(function (response) {
