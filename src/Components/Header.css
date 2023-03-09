@@ -25,3 +25,9 @@
 .makePointer:hover{
     cursor: pointer;
 }
+
+.noChange{
+    width: 30% !important;
+    margin-left: 35% !important;
+    background-color: #FBCA1F !important;
+}

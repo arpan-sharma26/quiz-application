@@ -21,12 +21,18 @@ const Questions = (props) => {
 
     const backButtonHandler = () => {
         dispatch(actions.decrementCount());
+        window.scrollTo(0, 0);
     };
 
     const nextButtonHandler = (slideNo) => {
         dispatch(actions.increaseCount());
         dispatch(actions.reviewOptions(slideNo));
+        window.scrollTo(0, 0);
     };
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     useEffect(()=>{
         if (slideNo === 1 || slideNo === 3 || slideNo === 5 || slideNo === 7 || slideNo === 5)

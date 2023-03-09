@@ -1,11 +1,10 @@
 import { FormControl, InputLabel, Select, MenuItem, Grid, Box, Dialog, DialogTitle, 
-DialogContent, CircularProgress, Typography, TextField, FormHelperText, Button, DialogActions } from '@mui/material';
+DialogContent, CircularProgress, Typography, Button, DialogActions, Link } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import { actions } from '../store';
 import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios';
+// import axios from 'axios';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
 
 const QuizResult = () => {
 
@@ -16,10 +15,13 @@ const QuizResult = () => {
     const moneyBlocks = useSelector(state => state.moneyBlocks);
     const [ifDialogOpen, setIfDialogOpen] = useState(true);
     const [ifRevealBlockOpen, setIfRevealBlockOpen] = useState(false);
-    const [userBookViewModal, setUserBookViewModal] = useState(false);
+    // const [userBookViewModal, setUserBookViewModal] = useState(false);
     const totalValues = useSelector(state => state.totalValues);
-    const [email, setEmail] = useState("");
     const firstname = useSelector(state => state.firstName);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     useEffect(() => {
         window.setTimeout(() => {
@@ -594,34 +596,14 @@ const QuizResult = () => {
         setSpouseDescription(moneyBlocks[event.target.value]);
     }
 
-    const sendQuiz = (event) => {
-        event.preventDefault();
-        setUserBookViewModal(true);
-        // http://ec2-15-223-72-54.ca-central-1.compute.amazonaws.com:5000/
-        // http://localhost:5000/
-        axios.post(`http://ec2-15-223-72-54.ca-central-1.compute.amazonaws.com:5000/`, {
-            email,
-            firstname
-        }).then(function (response) {
-            console.log(response);
-        }).catch(function (error) {
-            console.log(error);
-        });
-    };
-
-    const enterEmail = (event) => {
-        setEmail(event.target.value);
-    }
-
     return (
         // sx={{ m: 20 }}
         <Box sx={{ marginLeft: "1%", marginTop: "5%" }}>
             <Typography variant="h6"> <b>Steps to analyze your result.</b></Typography>
             <br />
             {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}
-            <Typography align='left' variant="h6">
-                <KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /> Choose your primary money block from the drop down menu. <br />
-                <KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /> Then choose your partner’s primary money block. <br />
+            <Typography sx={{ marginLeft: "5%" }} align='left' variant="h6">
+                <KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /> Once your partner has taken the quiz, choose your partner’s Money Block from the drop down menu below <br />
                 <KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /> You’ll learn what is happening underneath the financial friction you might be feeling. <br />
                 <KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /> These represent the most common themes of the relationship combinations, but, as always, you are two unique people who bring your unique personalities to create a unique relationship, and you might find that your financial blocks show up in unique ways. <br />
                 <KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /> To heal your money blocks, pre-order your copy of Naked Money Meetings today.</Typography>
@@ -629,19 +611,22 @@ const QuizResult = () => {
             <br />
             {/* Revealing money blocks dialog box */}
             <Dialog fullWidth={true} maxWidth={"sm"} open={!ifDialogOpen && !ifRevealBlockOpen} >
-                <DialogTitle variant="h4" align="center">{filteredMoneyBlocks.length === 1 ? `${firstname}, Your Money Block is :` : `${firstname}, Your Money Blocks are :`}</DialogTitle>
+                <DialogTitle variant="h4" align="center">{filteredMoneyBlocks.length === 1 ? `${firstname},your Money Block is:` : `${firstname},your Money Blocks are:`}</DialogTitle>
                 <DialogContent>
                     {filteredMoneyBlocks.map((value, index) => {
                         let indexString = index.toString();
                         let valueString = value;
                         return [
                             <Typography variant="h5" key={index} name={valueString} value={indexString}>{value}</Typography>,
-                            <Typography variant="h7" key={index} name={valueString} value={indexString}><EmojiObjectsIcon sx={{ color: "#05BDC9" }} />{blocksDesc[0][value]}</Typography>
+                            <Typography variant="h7" key={index+1} name={valueString} value={indexString}>{blocksDesc[0][value]}</Typography>,
+                            <br/>,
+                            <br/>
                         ]
                     })}
                 </DialogContent>
                 <DialogActions>
-                    <Button size="large" variant='contained' sx={{marginRight: '5%', marginBottom: '2%'}} onClick={() => setIfRevealBlockOpen(true)}>Proceed</Button>
+                <Typography variant="h7" sx={{marginBottom: '2%'}}>Are you in a relationship?</Typography>
+                <Button size="large" variant='contained' sx={{marginRight: '5%', marginLeft: '3%', marginBottom: '2%'}} onClick={() => setIfRevealBlockOpen(true)}>Click here</Button>
                 </DialogActions>
             </Dialog>
 
@@ -652,19 +637,6 @@ const QuizResult = () => {
                     <CircularProgress sx={{ marginLeft: "45%" }} />
                 </DialogContent>
             </Dialog>
-
-            {/* last dialog box, for the user to view the book  */}
-            <Dialog fullWidth={true} maxWidth={"sm"} open={userBookViewModal}>
-                <DialogTitle align="left"> To heal your Money Blocks, <a href="https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1">pre-order your copy of Naked Money Meetings</a> today</DialogTitle>
-                <DialogContent align="right">
-                    
-                        {/* <Button variant="contained">
-                            Learn more
-                        </Button> */}
-                    
-                </DialogContent>
-            </Dialog>
-
 
             <Grid justifyContent="center" spacing={4} container={true}>
                 <Grid item md={6}>
@@ -717,43 +689,25 @@ const QuizResult = () => {
             <Grid>
                 {
                     (selfDescription && spouseDescription) &&
-                    <Typography variant="h5"> <br /> <b>Money Block Results: </b></Typography>
+                    <Typography variant="h5"> <br /> <b>How Your Money Blocks Intersect: </b></Typography>
                 }
+                <br/>
             </Grid>
             <Grid justifyContent="center" container={true}>
                 {
                     (selfDescription && spouseDescription) &&
-                    <Typography align="left">
+                    <Typography sx={{ marginLeft: "5%" }} align="left">
                         {blocksDescription[0][`${selfDescription}-${spouseDescription}`].map(ele => {
                             return [
-                                // <br/>,
-                                <Typography><EmojiObjectsIcon sx={{ color: "#05BDC9" }} />{ele}</Typography>
+                                <Typography>{ele}</Typography>,
+                                
                             ]
                         }
                         )}
                     </Typography>
                 }
-            </Grid>
-            <Grid md={12} justifyContent="center">
-                <form onSubmit={sendQuiz}>
-                    <FormControl sx={{ marginTop: "5%", marginBottom: "5%"}}>
-                        <br/>
-                        <Typography variant="h4" sx={{ fontFamily: "'Montserrat', sans-serif !important;" }}>In a Relationship?</Typography>
-                        <br/><br/>
-                        <Grid alignItems="center" container={true}>
-                            <Grid md={6} xs={6}><Typography variant="h6" sx={{ fontFamily: "'Montserrat', sans-serif !important;", fontWeight: "bold", marginBottom: "5%" }}>Send this quiz to your partner</Typography></Grid>
-                            <Grid md={6} xs={6}>
-                                <TextField sx={{width: "95%"}} required type='email' placeholder='Enter e-mail' onChange={enterEmail}/>
-                                <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
-                            </Grid>
-                        </Grid>
-                        {/* <Typography sx={{ marginBottom: 1, color: 'gray' }} align='left'>E-mail</Typography> */}
-                        <br />
-                        <br />
-                        <Button sx={{width: "30%", marginLeft: "35%"}} size="large" type='submit' variant='contained'>SHARE QUIZ</Button>
-                        <br />
-                    </FormControl>
-                </form>
+                <Typography sx={{mt: "4%", mb: "4%"}} align="left"> To heal your Money Blocks, <Link style={{color:'blue'}} target="_blank" href="https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1">pre-order your copy of Naked Money Meetings</Link> today</Typography>
+
             </Grid>
         </Box>
     );

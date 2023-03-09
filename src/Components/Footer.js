@@ -22,30 +22,30 @@ const Footer = () => {
             <Grid backgroundColor='primary.main' container={true}>
                 <Grid xs={12} md={3}>
                     <Box sx={{ width: '70%', ml: 7, mt:4, mb:3 }} >
-                        <Link href='https://www.erinskyekelly.com/'><img src={Logo1} className='logo1' alt="brand-logo" /></Link>
+                        <Link target="_blank" href='https://www.erinskyekelly.com/'><img src={Logo1} className='logo1' alt="brand-logo" /></Link>
                     </Box>
                 </Grid>
                 <Grid sx={{ mt: 5 }} xs={12} md={6}>
                     <Typography>
-                        <Link style={{ color: 'white' }} href="https://www.erinskyekelly.com/about">ABOUT</Link> &nbsp;&nbsp;&nbsp;&nbsp;
-                        <Link style={{ color: 'white' }} href="https://www.erinskyekelly.com/get-the-hell-out-of-debt-book-2021">GET THE HELL OUT OF DEBT</Link> &nbsp;&nbsp;&nbsp;&nbsp;
-                        <Link style={{ color: 'white' }} href="https://www.erinskyekelly.com/learn">LEARN</Link> &nbsp;&nbsp;&nbsp;&nbsp;
-                        <Link style={{ color: 'white' }} href="https://www.erinskyekelly.com/contactus">CONTACT</Link> &nbsp;&nbsp;&nbsp;&nbsp;
-                        <Link style={{ color: 'white' }} href="https://www.erinskyekelly.com/coaching-and-consulting">ONE-ON-ONE</Link> &nbsp;&nbsp;&nbsp;&nbsp;
-                        <Link style={{ color: 'white' }} href="https://erinkellymortgages.ca/">MORTGAGES</Link>
+                        <Link target="_blank" style={{ color: 'white' }} href="https://www.erinskyekelly.com/about">ABOUT</Link> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <Link target="_blank" style={{ color: 'white' }} href="https://www.erinskyekelly.com/get-the-hell-out-of-debt-book-2021">GET THE HELL OUT OF DEBT</Link> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <Link target="_blank" style={{ color: 'white' }} href="https://www.erinskyekelly.com/learn">LEARN</Link> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <Link target="_blank" style={{ color: 'white' }} href="https://www.erinskyekelly.com/contactus">CONTACT</Link> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <Link target="_blank" style={{ color: 'white' }} href="https://www.erinskyekelly.com/coaching-and-consulting">ONE-ON-ONE</Link> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <Link target="_blank" style={{ color: 'white' }} href="https://erinkellymortgages.ca/">MORTGAGES</Link>
                     </Typography>
                 </Grid>
                 <Grid xs={12} md={3} sx={{mt:5, mb:3}}>
-                        <a href="https://twitter.com/erinskyekelly">
+                        <a target='_blank' rel="noreferrer" href="https://facebook.com/erinskyekelly">
                             <i className="fab fa-facebook colorChange"></i>
                         </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="https://twitter.com/erinskyekelly">
+                        <a target='_blank' rel="noreferrer" href="https://twitter.com/erinskyekelly">
                             <i className="fab fa-twitter colorChange"></i>
                         </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="https://www.instagram.com/getthehelloutofdebt/">
+                        <a target='_blank' rel="noreferrer" href="https://www.instagram.com/getthehelloutofdebt/">
                             <i className="fab fa-instagram colorChange"></i>
                         </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="https://www.tiktok.com/@erinskyekelly">
+                        <a target='_blank' rel="noreferrer" href="https://www.tiktok.com/@erinskyekelly">
                             <i className="fab fa-tiktok colorChange"></i>
                         </a>
                 </Grid>

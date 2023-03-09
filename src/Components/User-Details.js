@@ -141,13 +141,13 @@ const UserDetails = () => {
         <ThemeProvider theme={theme}>
 
             {(slideNo < 1) && <Grid justifyContent="center" sx={{ marginTop: 10 }}>
-                <Typography sx={{ fontFamily: "'Montserrat', sans-serif !important;" }} variant="h4" >
+                <Typography sx={{ fontFamily: "'Montserrat', sans-serif !important;", marginLeft: "10% !important", "margin-right": "10% !important" }} variant="h5" >
                     Take the FREE Naked Money Meetings online quiz to discover the naked truth about why you are unconsciously sabotaging your ability to build wealth.
                     <br /><br />If you have a partner, send them the quiz to discover what is underneath all the layers of financial friction in your relationship. </Typography>
                 <br />
-                <Typography sx={{ fontFamily: "'Montserrat', sans-serif !important;" }} variant="h4">(It's like a Cosmo quiz, except the answer will change your life and you won't have to shell out cash for a push-up bra and itchy lace thong.)</Typography>
+                <Typography sx={{ fontFamily: "'Montserrat', sans-serif !important;", marginLeft: "10% !important", "margin-right": "10% !important" }} variant="h5">(It's like a Cosmo quiz, except the answer will change your life and you won't have to shell out cash for a push-up bra and itchy lace thong.)</Typography>
                 <br /><br />
-                <Typography sx={{ fontFamily: "'Montserrat', sans-serif !important;" }} variant="h4">Ready? You need 8 uninterrupted minutes.</Typography>
+                <Typography sx={{ fontFamily: "'Montserrat', sans-serif !important;" }} variant="h5">Ready? You need 8 uninterrupted minutes.</Typography>
             </Grid>}
 
             {(slideNo < 1) && <motion.div initial={{ opacity: 1 }} animate={{ opacity: (slideNo !== 0 && rotate === true) ? 0 : 1, x: (slideNo !== 0 && rotate === true) ? -300 : 0 }}>
@@ -179,7 +179,7 @@ const UserDetails = () => {
                                 </CardContent>
                                 <CardActions>
                                     <Box sx={{ width: '100%' }}>
-                                        <Button href='https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1' size="large" style={{ marginBottom: 20 }} variant='contained' >Purchase</Button>
+                                        <Button target="_blank" href='https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1' size="large" style={{ marginBottom: 20 }} variant='contained' >Purchase</Button>
                                     </Box>
                                 </CardActions>
                             </CardActionArea>
@@ -201,7 +201,7 @@ const UserDetails = () => {
                                 </CardContent>
                                 <CardActions>
                                     <Box sx={{ width: '100%' }}>
-                                        <Button href='https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1' size="large" style={{ marginBottom: 20 }} variant='contained' >Purchase</Button>
+                                        <Button target="_blank" href='https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1' size="large" style={{ marginBottom: 20 }} variant='contained' >Purchase</Button>
                                     </Box>
                                 </CardActions>
                             </CardActionArea>
@@ -223,7 +223,7 @@ const UserDetails = () => {
                                 </CardContent>
                                 <CardActions>
                                     <Box sx={{ width: '100%' }}>
-                                        <Button href='https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1' size="large" style={{ marginBottom: 20 }} variant='contained' >Purchase</Button>
+                                        <Button target="_blank" href='https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1' size="large" style={{ marginBottom: 20 }} variant='contained' >Purchase</Button>
                                     </Box>
                                 </CardActions>
                             </CardActionArea>
