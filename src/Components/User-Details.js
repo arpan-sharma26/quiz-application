@@ -184,6 +184,8 @@ const UserDetails = () => {
                                 </CardActions>
                             </CardActionArea>
                         </Card>
+                        <br/>
+                        <br/>
                     </Grid>
                 </Grid>
             </motion.div>}
@@ -193,11 +195,11 @@ const UserDetails = () => {
                         <Questions blocks={moneyBlocks} slideNo={slideNo} statements={statements} />
                     </Grid>
                     <Grid item xs={12} md={4}>
-                        <Card sx={{ m: 12, maxWidth: '70%' }}>
+                        <Card sx={{ marginLeft:'15%', maxWidth: '70%' }}>
                             <CardActionArea>
                                 <CardMedia component='img' height={'100%'} image={resource} />
                                 <CardContent>
-                                    <Typography sx={{ fontSize: 22 }}>Get financially organized.</Typography>
+                                    <Typography sx={{ fontSize: 22 }}>Pre-buy your copy today from your favorite online bookstore</Typography>
                                 </CardContent>
                                 <CardActions>
                                     <Box sx={{ width: '100%' }}>
@@ -215,11 +217,11 @@ const UserDetails = () => {
                         <QuizResult />
                     </Grid>
                     <Grid item xs={12} md={4}>
-                        <Card sx={{marginLeft:'15%', maxWidth: '60%' }}>
+                        <Card sx={{marginLeft:'20%', maxWidth: '60%' }}>
                             <CardActionArea>
                                 <CardMedia component='img' image={resource} />
                                 <CardContent>
-                                    <Typography sx={{ fontSize: 22 }}>Get financially organized.</Typography>
+                                    <Typography sx={{ fontSize: 22 }}>Pre-buy your copy today from your favorite online bookstore</Typography>
                                 </CardContent>
                                 <CardActions>
                                     <Box sx={{ width: '100%' }}>
@@ -228,6 +230,8 @@ const UserDetails = () => {
                                 </CardActions>
                             </CardActionArea>
                         </Card>
+                        <br/>
+                        <br/>
                     </Grid>
                 </Grid>
             </motion.div>}

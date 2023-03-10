@@ -605,13 +605,12 @@ const QuizResult = () => {
             <Typography sx={{ marginLeft: "5%" }} align='left' variant="h6">
                 <KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /> Once your partner has taken the quiz, choose your partner’s Money Block from the drop down menu below <br />
                 <KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /> You’ll learn what is happening underneath the financial friction you might be feeling. <br />
-                <KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /> These represent the most common themes of the relationship combinations, but, as always, you are two unique people who bring your unique personalities to create a unique relationship, and you might find that your financial blocks show up in unique ways. <br />
-                <KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /> To heal your money blocks, pre-order your copy of Naked Money Meetings today.</Typography>
+                <KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /> These represent the most common themes of the relationship combinations, but, as always, you are two unique people who bring your unique personalities to create a unique relationship, and you might find that your financial blocks show up in unique ways. <br /></Typography>
             <br />
             <br />
             {/* Revealing money blocks dialog box */}
             <Dialog fullWidth={true} maxWidth={"sm"} open={!ifDialogOpen && !ifRevealBlockOpen} >
-                <DialogTitle variant="h4" align="center">{filteredMoneyBlocks.length === 1 ? `${firstname},your Money Block is:` : `${firstname},your Money Blocks are:`}</DialogTitle>
+                <DialogTitle variant="h4" align="center">{filteredMoneyBlocks.length === 1 ? `${firstname}, your Money Block is:` : `${firstname}, your Money Blocks are:`}</DialogTitle>
                 <DialogContent>
                     {filteredMoneyBlocks.map((value, index) => {
                         let indexString = index.toString();
@@ -706,7 +705,7 @@ const QuizResult = () => {
                         )}
                     </Typography>
                 }
-                <Typography sx={{mt: "4%", mb: "4%"}} align="left"> To heal your Money Blocks, <Link style={{color:'blue'}} target="_blank" href="https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1">pre-order your copy of Naked Money Meetings</Link> today</Typography>
+                <Typography sx={{mt: "4%", mb: "4%" , fontSize: "1.3rem", fontWeight: "bold"}} align="left"> To heal your Money Blocks, <Link style={{color:'blue'}} target="_blank" href="https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1">pre-order your copy of Naked Money Meetings</Link> today</Typography>
 
             </Grid>
         </Box>
