@@ -1,29 +1,25 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { FormControl, InputLabel, Select, MenuItem, Grid, Box, Dialog, DialogTitle, 
 DialogContent, CircularProgress, Typography, Button, DialogActions, Link } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import { actions } from '../store';
 import { useSelector, useDispatch } from 'react-redux';
-// import axios from 'axios';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
-const QuizResult = () => {
+const QuizResult = (props) => {
 
     const dispatch = useDispatch();
-
+    let filteredMoneyBlocks = [];
     let disableDropdown = false;
 
     const moneyBlocks = useSelector(state => state.moneyBlocks);
     const [ifDialogOpen, setIfDialogOpen] = useState(true);
     const [ifRevealBlockOpen, setIfRevealBlockOpen] = useState(false);
-    // const [userBookViewModal, setUserBookViewModal] = useState(false);
     const totalValues = useSelector(state => state.totalValues);
     const firstname = useSelector(state => state.firstName);
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
-
-    useEffect(() => {
         window.setTimeout(() => {
             setIfDialogOpen(false);
         }, 5000);
@@ -33,8 +29,17 @@ const QuizResult = () => {
     const highestValue = totalValues.reduce((a, b) => { return Math.max(a, b) });
 
     let numberOfInstances = 0;
-    let filteredMoneyBlocks = [];
 
+    if(totalValues[0] !== null ){
+        for (let i = 0; i < totalValues.length; i++) {
+            if (highestValue === totalValues[i]) {
+                numberOfInstances++;
+                filteredMoneyBlocks.push(moneyBlocks[i]);
+            }
+        }
+        props.getresult(filteredMoneyBlocks);
+    }
+    
     let [dropdownValue, setDropdownValue] = useState("0");
     let [spouseDropdownValue, setSpouseDropdownValue] = useState("");
 
@@ -575,12 +580,6 @@ const QuizResult = () => {
         "The Money Guilt Block": `I feel guilty when I have money and other people are struggling. It feels greedy or unfair if I have money while other people are hurting financially. This blocks the flow of wealth because we believe that there is a finite amount of abundance.`
     }];
 
-    for (let i = 0; i < totalValues.length; i++) {
-        if (highestValue === totalValues[i]) {
-            numberOfInstances++;
-            filteredMoneyBlocks.push(moneyBlocks[i]);
-        }
-    }
 
     if (numberOfInstances === 1) {
         disableDropdown = true;
@@ -623,6 +622,8 @@ const QuizResult = () => {
                         ]
                     })}
                 </DialogContent>
+                <Typography sx={{ marginLeft: "1%", marginRight: "1%" }} variant="h7"><b>**Check your email for a more detailed explanation of your Money Block.</b></Typography>
+                <br/>
                 <DialogActions>
                 <Typography variant="h7" sx={{marginBottom: '2%'}}>Are you in a relationship?</Typography>
                 <Button size="large" variant='contained' sx={{marginRight: '5%', marginLeft: '3%', marginBottom: '2%'}} onClick={() => setIfRevealBlockOpen(true)}>Click here</Button>
@@ -696,9 +697,9 @@ const QuizResult = () => {
                 {
                     (selfDescription && spouseDescription) &&
                     <Typography sx={{ marginLeft: "5%" }} align="left">
-                        {blocksDescription[0][`${selfDescription}-${spouseDescription}`].map(ele => {
+                        {blocksDescription[0][`${selfDescription}-${spouseDescription}`].map((ele, index) => {
                             return [
-                                <Typography>{ele}</Typography>,
+                                <Typography key={index}>{ele}</Typography>,
                                 
                             ]
                         }

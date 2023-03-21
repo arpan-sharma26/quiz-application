@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
-import { Box, Button, FormControl, TextField, ThemeProvider, Typography, createTheme, Card, CardActionArea, CardMedia, CardContent, CardActions } from '@mui/material';
+import { Box, Button, FormControl, TextField, ThemeProvider, Typography, createTheme, Card, CardActionArea, CardMedia, CardContent, CardActions, FormHelperText } from '@mui/material';
 import erinImage from '../Images/erinImage.jpg';
 import resource from '../Images/naked_money_meetings.png';
 import './User-Details.css';
@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { actions } from '../store';
 import Questions from './Questions';
 import QuizResult from './QuizResult';
+import axios from 'axios';
 
 const theme = createTheme({
     palette: {
@@ -25,8 +26,10 @@ const UserDetails = () => {
     const dispatch = useDispatch();
     const slideNo = useSelector(state => state.slideNo);
     const [rotate, setRotate] = useState(false);
-
+    const userEmail = useSelector(state => state.email);
+    const counters = useSelector(state => state.counter);
     const moneyBlocks = useSelector(state => state.moneyBlocks);
+    const firstname = useSelector(state => state.firstName);
 
     const statements = {
         1: [
@@ -128,13 +131,42 @@ const UserDetails = () => {
         ],
     }
 
-    const startQuizHandler = (event) => {
+    const startQuizHandler = async (event) => {
         setRotate(!rotate);
         dispatch(actions.increaseCount());   
         const data = new FormData(event.target);
         const value = Object.fromEntries(data.entries());
         const name = value.firstname;
         dispatch(actions.updateName(name));
+    }
+
+    const enterEmail = (event) => {
+        dispatch(actions.storeEmail(event.target.value));
+    }
+
+    const saveData = async (data) => {
+        if(counters === 0){
+            dispatch(actions.addToCounter());
+            const url = `http://ec2-15-223-72-54.ca-central-1.compute.amazonaws.com:5000/savedata`;
+            axios.post(url, { data: { email: userEmail, result: data } }).then(function (response) {
+                console.log(response)
+            }).catch(function (error) {
+                console.log(error);
+            });
+
+            // http://ec2-15-223-72-54.ca-central-1.compute.amazonaws.com:5000/
+            // http://localhost:5000/
+            axios.post(`http://ec2-15-223-72-54.ca-central-1.compute.amazonaws.com:5000/`, {
+                userEmail,
+                firstname,
+                data,
+                result: true
+            }).then(function (response) {
+                console.log(response);
+            }).catch(function (error) {
+                console.log(error);
+            });
+        }
     }
 
     return (
@@ -162,8 +194,13 @@ const UserDetails = () => {
                                 <TextField required id='first-name' name="firstname" placeholder='Enter first name' />
                                 <br />
                                 <Typography sx={{ marginBottom: 1, color: 'gray' }} align='left'>Last Name</Typography>
-                                <TextField required id='last-name' name="lastname" placeholder='Enter last name' />
+                                <TextField required id='last-name' name="lasttname"  placeholder='Enter last name' />
                                 <br />
+                                <Typography sx={{ marginBottom: 1, color: 'gray' }} align='left'>E-Mail</Typography>
+                                <TextField required name="email" type='email' placeholder='Enter e-mail' onChange={enterEmail} />
+                                <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
+                                {/* arpan-3@quizdemo-380800.iam.gserviceaccount.com */}
+                                {/* 1suXLfigigIszK67kKh9AySo1_KZPFUacfg452tRqiI0 */}
                                 <br />
                                 <Button size="large" type='submit' variant='contained'>START QUIZ</Button>
                                 <br />
@@ -211,10 +248,10 @@ const UserDetails = () => {
                     </Grid>
                 </Grid>
             </motion.div>}
-            {(slideNo === 9 ) && <motion.div initial={{ opacity: 0 }} exit={{ opacity: 1 }} animate={{ opacity: (slideNo <= 0 && rotate === true) ? 0 : 1, x: (slideNo < 1 && rotate === true) ? -300 : 0 }}>
+            {(slideNo === 9 ) && 
                 <Grid container={true}>
                     <Grid item xs={12} md={8}>
-                        <QuizResult />
+                        <QuizResult getresult={saveData}/>
                     </Grid>
                     <Grid item xs={12} md={4}>
                         <Card sx={{marginLeft:'20%', maxWidth: '60%' }}>
@@ -234,7 +271,7 @@ const UserDetails = () => {
                         <br/>
                     </Grid>
                 </Grid>
-            </motion.div>}
+            }
         </ThemeProvider>
     );
 }

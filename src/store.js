@@ -49,7 +49,9 @@ const animationSlice = createSlice({
             "The Money Guilt Block"
         ],
         dialog: true,
-        totalValues : [null]
+        totalValues : [null],
+        email: null,
+        counter: 0
     },
     reducers: {
         increaseCount(state) {
@@ -80,6 +82,12 @@ const animationSlice = createSlice({
         },
         updateName(state, action){
             state.firstName = action.payload;
+        },
+        storeEmail(state, action){
+            state.email = action.payload;
+        },
+        addToCounter(state){
+            state.counter++;
         }
     }
 });
