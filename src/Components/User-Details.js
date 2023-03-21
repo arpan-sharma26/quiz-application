@@ -58,15 +58,14 @@ const UserDetails = () => {
         ],
         3: [
             `I’m not good enough to be wealthy`, 
-            `I treat other people better than I treat myself`, 
+            `I treat other people better than I treat myself, I can be a people pleaser`, 
             `People like me never succeed financially`, 
             `I put a lot of pressure on myself to do things perfectly`, 
             `I struggle to ask for help`, 
             `I struggle to keep promises I’ve made to myself`, 
             `There are people in my life who often criticize me`, 
             `I buy from discount shops and rarely treat myself to luxury items`, 
-            `I often have feelings of inferiority`, 
-            `I can be a people pleaser`,
+            `I often have feelings of inferiority`,
             `I often look for external validation` 
         ],
         4: [
