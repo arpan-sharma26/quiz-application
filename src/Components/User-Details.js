@@ -182,9 +182,9 @@ const UserDetails = () => {
             </Grid>}
 
             {(slideNo < 1) && <motion.div initial={{ opacity: 1 }} animate={{ opacity: (slideNo !== 0 && rotate === true) ? 0 : 1, x: (slideNo !== 0 && rotate === true) ? -300 : 0 }}>
-                <Grid alignItems="center" justify="center" container={true}>
-                    <Grid item xs={12} md={4}>
-                        <img width={'100%'} height={'85%'} src={erinImage} alt='erin'></img>
+                <Grid justify="center" container={true} sx={{alignItems:"flex-end"}}>
+                    <Grid item xs={12} md={4} sx={{alignItems:"flex-end"}}>
+                        <img width={'100%'} src={erinImage} alt='erin'></img>
                     </Grid>
                     <Grid sx={{ marginBottom: 30 }} item xs={12} md={4}>
                         <form onSubmit={startQuizHandler}>
@@ -198,8 +198,6 @@ const UserDetails = () => {
                                 <Typography sx={{ marginBottom: 1, color: 'gray' }} align='left'>Email</Typography>
                                 <TextField required name="email" type='email' placeholder='Enter email' onChange={enterEmail} />
                                 <FormHelperText id="my-helper-text">We'll never share your email, but we will send you your results.</FormHelperText>
-                                {/* arpan-3@quizdemo-380800.iam.gserviceaccount.com */}
-                                {/* 1suXLfigigIszK67kKh9AySo1_KZPFUacfg452tRqiI0 */}
                                 <br />
                                 <Button size="large" type='submit' variant='contained'>START QUIZ</Button>
                                 <br />
