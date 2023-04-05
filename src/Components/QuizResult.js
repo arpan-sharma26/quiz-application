@@ -706,7 +706,7 @@ const QuizResult = (props) => {
                         )}
                     </Typography>
                 }
-                <Typography sx={{mt: "4%", mb: "4%" , fontSize: "1.3rem", fontWeight: "bold"}} align="left"> To heal your Money Blocks, <Link style={{color:'blue'}} target="_blank" href="https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1">pre-order your copy of Naked Money Meetings</Link> today</Typography>
+                <Typography sx={{mt: "4%", mb: "4%" , fontSize: "1.3rem", fontWeight: "bold"}} align="left"> To heal your Money Blocks, <Link style={{color:'blue'}} target="_blank" href="https://amzn.to/3JRdtWT">pre-order your copy of Naked Money Meetings</Link> today</Typography>
 
             </Grid>
         </Box>

@@ -59,7 +59,7 @@ const Header = () => {
             <Grid justifyContent="center" container={true}>
                 <Grid xs={12}>
                     <Box backgroundColor='primary.main'>
-                        <Link className='buy-books' target="_blank" href="https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1" variant='h6' style={{ color: 'white' }}>ORDER ERIN'S BOOK HERE!</Link>
+                        <Link className='buy-books' target="_blank" href="https://amzn.to/3JRdtWT" variant='h6' style={{ color: 'white' }}>ORDER ERIN'S BOOK HERE!</Link>
                     </Box>
                 </Grid>
                 <Grid xs={6} sx={{mt:4}}>
@@ -67,7 +67,7 @@ const Header = () => {
                 </Grid>
             </Grid>
 
-            {stateNo < 9 && <Typography className='font-quiz'>{stateNo === 9 ? `In a relationship?` : `What is your Money Block?`}</Typography>}
+            {stateNo < 9 && <Typography className='font-quiz'>{stateNo === 9 ? `In a relationship?` : `What is your primary Money Block?`}</Typography>}
 
             {stateNo === 9 &&
                 <Grid md={12} justifyContent="center">
@@ -82,8 +82,8 @@ const Header = () => {
                                     <Grid alignItems="center" container={true}>
                                         <Grid md={6} xs={6}><Typography variant="h6" sx={{ fontFamily: "'Montserrat', sans-serif !important;", fontWeight: "bold", marginBottom: "5%" }}>Send this quiz to your partner</Typography></Grid>
                                         <Grid md={6} xs={6}>
-                                            <TextField sx={{ width: "95%" }} required type='email' placeholder='Enter e-mail' onChange={enterEmail} />
-                                            <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
+                                            <TextField sx={{ width: "95%" }} required type='email' placeholder='Enter partner’s email' onChange={enterEmail} />
+                                            <FormHelperText id="my-helper-text">We’ll never share their email address.</FormHelperText>
                                         </Grid>
                                     </Grid>
                                 </Grid>
@@ -99,7 +99,7 @@ const Header = () => {
 
             {/* last dialog box, for the user to view the book  */}
             <Dialog fullWidth={true} maxWidth={"sm"} open={userBookViewModal} onClose={()=>{setUserBookViewModal(false)}}>
-                <DialogTitle align="left"> To heal your Money Blocks, <Link style={{color:'blue'}} onClick={()=> {setUserBookViewModal(false)}} target="_blank" href="https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1">pre-order your copy of Naked Money Meetings</Link> today</DialogTitle>
+                <DialogTitle align="left"> To heal your Money Blocks, <Link style={{color:'blue'}} onClick={()=> {setUserBookViewModal(false)}} target="_blank" href="https://amzn.to/3JRdtWT">pre-order your copy of Naked Money Meetings</Link> today</DialogTitle>
                 <DialogContent align="right">
 
                     {/* <Button variant="contained">

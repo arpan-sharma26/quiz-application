@@ -195,9 +195,9 @@ const UserDetails = () => {
                                 <Typography sx={{ marginBottom: 1, color: 'gray' }} align='left'>Last Name</Typography>
                                 <TextField required id='last-name' name="lasttname"  placeholder='Enter last name' />
                                 <br />
-                                <Typography sx={{ marginBottom: 1, color: 'gray' }} align='left'>E-Mail</Typography>
-                                <TextField required name="email" type='email' placeholder='Enter e-mail' onChange={enterEmail} />
-                                <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
+                                <Typography sx={{ marginBottom: 1, color: 'gray' }} align='left'>Email</Typography>
+                                <TextField required name="email" type='email' placeholder='Enter email' onChange={enterEmail} />
+                                <FormHelperText id="my-helper-text">We'll never share your email, but we will send you your results.</FormHelperText>
                                 {/* arpan-3@quizdemo-380800.iam.gserviceaccount.com */}
                                 {/* 1suXLfigigIszK67kKh9AySo1_KZPFUacfg452tRqiI0 */}
                                 <br />
@@ -211,11 +211,11 @@ const UserDetails = () => {
                             <CardActionArea>
                                 <CardMedia component='img' height={'100%'} image={resource} />
                                 <CardContent>
-                                    <Typography sx={{ fontSize: 22 }}>Pre-buy your copy today from your favorite online bookstore</Typography>
+                                    <Typography sx={{ fontSize: 22 }}>Purchase your copy today from your favorite online bookstore</Typography>
                                 </CardContent>
                                 <CardActions>
                                     <Box sx={{ width: '100%' }}>
-                                        <Button target="_blank" href='https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1' size="large" style={{ marginBottom: 20 }} variant='contained' >Purchase</Button>
+                                        <Button target="_blank" href='https://amzn.to/3JRdtWT' size="large" style={{ marginBottom: 20 }} variant='contained' >Purchase</Button>
                                     </Box>
                                 </CardActions>
                             </CardActionArea>
@@ -235,11 +235,11 @@ const UserDetails = () => {
                             <CardActionArea>
                                 <CardMedia component='img' height={'100%'} image={resource} />
                                 <CardContent>
-                                    <Typography sx={{ fontSize: 22 }}>Pre-buy your copy today from your favorite online bookstore</Typography>
+                                    <Typography sx={{ fontSize: 22 }}>Purchase your copy today from your favorite online bookstore</Typography>
                                 </CardContent>
                                 <CardActions>
                                     <Box sx={{ width: '100%' }}>
-                                        <Button target="_blank" href='https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1' size="large" style={{ marginBottom: 20 }} variant='contained' >Purchase</Button>
+                                        <Button target="_blank" href='https://amzn.to/3JRdtWT' size="large" style={{ marginBottom: 20 }} variant='contained' >Purchase</Button>
                                     </Box>
                                 </CardActions>
                             </CardActionArea>
@@ -257,11 +257,11 @@ const UserDetails = () => {
                             <CardActionArea>
                                 <CardMedia component='img' image={resource} />
                                 <CardContent>
-                                    <Typography sx={{ fontSize: 22 }}>Pre-buy your copy today from your favorite online bookstore</Typography>
+                                    <Typography sx={{ fontSize: 22 }}>Purchase your copy today from your favorite online bookstore</Typography>
                                 </CardContent>
                                 <CardActions>
                                     <Box sx={{ width: '100%' }}>
-                                        <Button target="_blank" href='https://www.amazon.com/Naked-Money-Meetings-Partner-Forever/dp/1637587791/ref=sr_1_1?crid=3NCT78ESEGHCS&keywords=naked+money+meetings+erin+skye+kelly&qid=1676239960&sprefix=naked+money+meetings+erin+skye+kelly%2Caps%2C114&sr=8-1' size="large" style={{ marginBottom: 20 }} variant='contained' >Purchase</Button>
+                                        <Button target="_blank" href='https://amzn.to/3JRdtWT' size="large" style={{ marginBottom: 20 }} variant='contained' >Purchase</Button>
                                     </Box>
                                 </CardActions>
                             </CardActionArea>
