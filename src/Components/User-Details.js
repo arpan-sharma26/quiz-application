@@ -146,7 +146,7 @@ const UserDetails = () => {
     const saveData = async (data) => {
         if(counters === 0){
             dispatch(actions.addToCounter());
-            const url = `http://ec2-15-223-72-54.ca-central-1.compute.amazonaws.com:5000/savedata`;
+            const url = `http://ec2-15-222-252-107.ca-central-1.compute.amazonaws.com:5000/savedata`;
             axios.post(url, { data: { email: userEmail, result: data } }).then(function (response) {
                 console.log(response)
             }).catch(function (error) {
@@ -155,7 +155,7 @@ const UserDetails = () => {
 
             // http://ec2-15-223-72-54.ca-central-1.compute.amazonaws.com:5000/
             // http://localhost:5000/
-            axios.post(`http://ec2-15-223-72-54.ca-central-1.compute.amazonaws.com:5000/`, {
+            axios.post(`http://ec2-15-222-252-107.ca-central-1.compute.amazonaws.com:5000/`, {
                 userEmail,
                 firstname,
                 data,
