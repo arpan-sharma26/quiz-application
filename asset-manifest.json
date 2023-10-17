@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/quiz-application/static/css/main.62e0b1eb.css",
+    "main.js": "/quiz-application/static/js/main.c9492797.js",
+    "static/media/fontawesome-webfont.svg?v=4.7.0": "/quiz-application/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
+    "static/media/naked_money_meetings.png": "/quiz-application/static/media/naked_money_meetings.80443f20c92a5ee7cc78.png",
+    "static/media/fontawesome-webfont.eot": "/quiz-application/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
+    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/quiz-application/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
+    "static/media/fontawesome-webfont.woff?v=4.7.0": "/quiz-application/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
+    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/quiz-application/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
+    "static/media/erinImage.jpg": "/quiz-application/static/media/erinImage.4495b4bb481a42041180.jpg",
+    "static/media/ESK_logo.png": "/quiz-application/static/media/ESK_logo.d0e3b78ef0ff1537e57c.png",
+    "index.html": "/quiz-application/index.html",
+    "main.62e0b1eb.css.map": "/quiz-application/static/css/main.62e0b1eb.css.map",
+    "main.c9492797.js.map": "/quiz-application/static/js/main.c9492797.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.62e0b1eb.css",
+    "static/js/main.c9492797.js"
+  ]
+}
