@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
-import { Box, Button, FormControl, TextField, ThemeProvider, Typography, createTheme, Card, CardActionArea, CardMedia, CardContent, CardActions, FormHelperText } from '@mui/material';
+import { Box, Button, FormControl, ThemeProvider, Typography, createTheme, Card, CardActionArea, CardMedia, CardContent, CardActions } from '@mui/material';
 import erinImage from '../Images/erinImage.jpg';
 import resource from '../Images/naked_money_meetings.png';
 import './User-Details.css';
@@ -133,14 +133,10 @@ const UserDetails = () => {
     const startQuizHandler = async (event) => {
         setRotate(!rotate);
         dispatch(actions.increaseCount());   
-        const data = new FormData(event.target);
-        const value = Object.fromEntries(data.entries());
-        const name = value.firstname;
-        dispatch(actions.updateName(name));
-    }
-
-    const enterEmail = (event) => {
-        dispatch(actions.storeEmail(event.target.value));
+        // const data = new FormData(event.target);
+        // const value = Object.fromEntries(data.entries());
+        // const name = value.firstname;
+        // dispatch(actions.updateName(name));
     }
 
     const saveData = async (data) => {
@@ -167,15 +163,19 @@ const UserDetails = () => {
         }
     }
 
+    const openURL = () => {
+        window.open("https://amzn.to/40HzEFa");
+    }
+
     return (
         <ThemeProvider theme={theme}>
 
-            {(slideNo < 1) && <Grid justifyContent="center" sx={{ marginTop: 10 }}>
-                <Typography sx={{ fontFamily: "'Montserrat', sans-serif !important;", marginLeft: "10% !important", "margin-right": "10% !important" }} variant="h5" >
+            {(slideNo < 1) && <Grid sx={{ marginTop: 10  }}>
+                <Typography sx={{ fontFamily: "'Montserrat', sans-serif !important;", textAlign: 'left', marginLeft: "10% !important", "margin-right": "10% !important" }} variant="h6" >
                     Take the FREE Naked Money Meetings online quiz to discover the naked truth about why you are unconsciously sabotaging your ability to build wealth.
                     <br /><br />If you have a partner, send them the quiz to discover what is underneath all the layers of financial friction in your relationship. </Typography>
                 <br />
-                <Typography sx={{ fontFamily: "'Montserrat', sans-serif !important;", marginLeft: "10% !important", "margin-right": "10% !important" }} variant="h5">(It's like a Cosmo quiz, except the answer will change your life and you won't have to shell out cash for a push-up bra and itchy lace thong.)</Typography>
+                <Typography sx={{ fontFamily: "'Montserrat', sans-serif !important;", textAlign: 'left', marginLeft: "10% !important", "margin-right": "10% !important" }} variant="h6">(It's like a Cosmo quiz, except the answer will change your life and you won't have to shell out cash for a push-up bra and itchy lace thong.)</Typography>
                 <br /><br />
                 <Typography sx={{ fontFamily: "'Montserrat', sans-serif !important;" }} variant="h5">Ready? You need 8 uninterrupted minutes.</Typography>
             </Grid>}
@@ -185,19 +185,9 @@ const UserDetails = () => {
                     <Grid item xs={12} md={4} sx={{alignItems:"flex-end"}}>
                         <img width={'100%'} src={erinImage} alt='erin'></img>
                     </Grid>
-                    <Grid sx={{ marginBottom: 30 }} item xs={12} md={4}>
+                    <Grid sx={{ marginBottom: 50 }} item xs={12} md={4}>
                         <form onSubmit={startQuizHandler}>
                             <FormControl sx={{ width: '60%' }}>
-                                <Typography sx={{ marginBottom: 1, color: 'gray', marginTop: 12 }} align='left'>First Name</Typography>
-                                <TextField required id='first-name' name="firstname" placeholder='Enter first name' />
-                                <br />
-                                <Typography sx={{ marginBottom: 1, color: 'gray' }} align='left'>Last Name</Typography>
-                                <TextField required id='last-name' name="lasttname"  placeholder='Enter last name' />
-                                <br />
-                                <Typography sx={{ marginBottom: 1, color: 'gray' }} align='left'>Email</Typography>
-                                <TextField required name="email" type='email' placeholder='Enter email' onChange={enterEmail} />
-                                <FormHelperText id="my-helper-text">We'll never share your email, but we will send you your results.</FormHelperText>
-                                <br />
                                 <Button size="large" type='submit' variant='contained'>START QUIZ</Button>
                                 <br />
                             </FormControl>
@@ -205,14 +195,14 @@ const UserDetails = () => {
                     </Grid>
                     <Grid item xs={12} md={4}>
                         <Card sx={{marginLeft:'15%', maxWidth: '70%' }}>
-                            <CardActionArea>
+                            <CardActionArea onClick={openURL}>
                                 <CardMedia component='img' height={'100%'} image={resource} />
                                 <CardContent>
                                     <Typography sx={{ fontSize: 22 }}>Purchase your copy today from your favorite online bookstore</Typography>
                                 </CardContent>
                                 <CardActions>
                                     <Box sx={{ width: '100%' }}>
-                                        <Button target="_blank" href='https://amzn.to/3JRdtWT' size="large" style={{ marginBottom: 20 }} variant='contained' >Purchase</Button>
+                                        <Button target="_blank" href='https://amzn.to/40HzEFa' size="large" style={{ marginBottom: 20 }} variant='contained' >Purchase</Button>
                                     </Box>
                                 </CardActions>
                             </CardActionArea>
@@ -229,14 +219,14 @@ const UserDetails = () => {
                     </Grid>
                     <Grid item xs={12} md={4}>
                         <Card sx={{ marginLeft:'15%', maxWidth: '70%' }}>
-                            <CardActionArea>
+                            <CardActionArea onClick={openURL}>
                                 <CardMedia component='img' height={'100%'} image={resource} />
                                 <CardContent>
                                     <Typography sx={{ fontSize: 22 }}>Purchase your copy today from your favorite online bookstore</Typography>
                                 </CardContent>
                                 <CardActions>
                                     <Box sx={{ width: '100%' }}>
-                                        <Button target="_blank" href='https://amzn.to/3JRdtWT' size="large" style={{ marginBottom: 20 }} variant='contained' >Purchase</Button>
+                                        <Button target="_blank" href='https://amzn.to/40HzEFa' size="large" style={{ marginBottom: 20 }} variant='contained' >Purchase</Button>
                                     </Box>
                                 </CardActions>
                             </CardActionArea>
@@ -251,14 +241,14 @@ const UserDetails = () => {
                     </Grid>
                     <Grid item xs={12} md={4}>
                         <Card sx={{marginLeft:'20%', maxWidth: '60%' }}>
-                            <CardActionArea>
+                            <CardActionArea onClick={openURL}>
                                 <CardMedia component='img' image={resource} />
                                 <CardContent>
                                     <Typography sx={{ fontSize: 22 }}>Purchase your copy today from your favorite online bookstore</Typography>
                                 </CardContent>
                                 <CardActions>
                                     <Box sx={{ width: '100%' }}>
-                                        <Button target="_blank" href='https://amzn.to/3JRdtWT' size="large" style={{ marginBottom: 20 }} variant='contained' >Purchase</Button>
+                                        <Button target="_blank" href='https://amzn.to/40HzEFa' size="large" style={{ marginBottom: 20 }} variant='contained' >Purchase</Button>
                                     </Box>
                                 </CardActions>
                             </CardActionArea>

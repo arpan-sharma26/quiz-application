@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { actions } from '../store';
 import { useSelector, useDispatch } from 'react-redux';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import UserInfo from './User-Info';
 
 const QuizResult = (props) => {
 
@@ -13,16 +14,19 @@ const QuizResult = (props) => {
     let disableDropdown = false;
 
     const moneyBlocks = useSelector(state => state.moneyBlocks);
-    const [ifDialogOpen, setIfDialogOpen] = useState(true);
+    const [ifLoaderOpen, setifLoaderOpen] = useState(false);
+    // const [ifDialogOpen, setIfDialogOpen] = useState(false);
+    const [showUserInfo, setShowUserInfo] = useState(true);
     const [ifRevealBlockOpen, setIfRevealBlockOpen] = useState(false);
     const totalValues = useSelector(state => state.totalValues);
     const firstname = useSelector(state => state.firstName);
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        window.setTimeout(() => {
-            setIfDialogOpen(false);
-        }, 5000);
+        // window.setTimeout(() => {
+        //     setIfRevealBlockOpen(true);
+        //     setifLoaderOpen(false);
+        // }, 5000);
         dispatch(actions.averageCalculations());
     }, [dispatch]);
 
@@ -597,18 +601,23 @@ const QuizResult = (props) => {
 
     return (
         // sx={{ m: 20 }}
-        <Box sx={{ marginLeft: "1%", marginTop: "5%" }}>
-            <Typography variant="h6"> <b>Steps to analyze your result.</b></Typography>
+        <Box sx={{ marginLeft: "1%", marginTop: "5%", width: "100%" }}>
+            <Typography variant="h6"> <b>Next steps</b></Typography>
             <br />
-            {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}
             <Typography sx={{ marginLeft: "5%" }} align='left' variant="h6">
-                <KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /> Once your partner has taken the quiz, choose your partner’s Money Block from the drop down menu below <br />
-                <KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /> You’ll learn what is happening underneath the financial friction you might be feeling. <br />
-                <KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /> These represent the most common themes of the relationship combinations, but, as always, you are two unique people who bring your unique personalities to create a unique relationship, and you might find that your financial blocks show up in unique ways. <br /></Typography>
+                <Grid container={true}>
+                    <Grid lg={0.5} xs={0.5}><KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /></Grid>
+                    <Grid lg={11.5} xs={11.5}>Once your partner has taken the quiz, choose your partner’s Money Block from the drop down menu below</Grid>
+                    <Grid lg={0.5} xs={0.5}><KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /></Grid>
+                    <Grid lg={11.5} xs={11.5}>You’ll learn what is happening underneath the financial friction you might be feeling.</Grid>
+                    <Grid lg={0.5} xs={0.5}><KeyboardArrowRightIcon sx={{ color: '#D54B6C' }} /></Grid>
+                    <Grid lg={11.5} xs={11.5}>These represent the most common themes of the relationship combinations, but, as always, you are two unique people who bring your unique personalities to create a unique relationship, and you might find that your financial blocks show up in unique ways.</Grid>
+                </Grid>
+            </Typography>
             <br />
             <br />
             {/* Revealing money blocks dialog box */}
-            <Dialog fullWidth={true} maxWidth={"sm"} open={!ifDialogOpen && !ifRevealBlockOpen} >
+            <Dialog fullWidth={true} maxWidth={"sm"} open={ifRevealBlockOpen} >
                 <DialogTitle variant="h4" align="center">{filteredMoneyBlocks.length === 1 ? `${firstname}, your Money Block is:` : `${firstname}, your Money Blocks are:`}</DialogTitle>
                 <DialogContent>
                     {filteredMoneyBlocks.map((value, index) => {
@@ -626,12 +635,19 @@ const QuizResult = (props) => {
                 <br/>
                 <DialogActions>
                 <Typography variant="h7" sx={{marginBottom: '2%'}}>Are you in a relationship?</Typography>
-                <Button size="large" variant='contained' sx={{marginRight: '5%', marginLeft: '3%', marginBottom: '2%'}} onClick={() => setIfRevealBlockOpen(true)}>Click here</Button>
+                <Button size="large" variant='contained' sx={{marginRight: '5%', marginLeft: '3%', marginBottom: '2%'}} onClick={() => setIfRevealBlockOpen(false)}>Click here</Button>
                 </DialogActions>
             </Dialog>
 
+            <Dialog fullWidth={true} maxWidth={"xs"} open={showUserInfo}>
+                <DialogTitle sx={{ textAlign: "center" }}>User Information</DialogTitle>
+                <DialogContent>
+                    <UserInfo openDialog={setifLoaderOpen} userInfo={setShowUserInfo} ifRevealBlockOpen={setIfRevealBlockOpen}/>
+                </DialogContent>
+            </Dialog>
+
             {/* loader */}
-            <Dialog fullWidth={true} maxWidth={"xs"} open={ifDialogOpen} >
+            <Dialog fullWidth={true} maxWidth={"xs"} open={ifLoaderOpen}>
                 <DialogTitle sx={{ marginLeft: "25%" }}>Calculating Results</DialogTitle>
                 <DialogContent>
                     <CircularProgress sx={{ marginLeft: "45%" }} />
@@ -706,7 +722,7 @@ const QuizResult = (props) => {
                         )}
                     </Typography>
                 }
-                <Typography sx={{mt: "4%", mb: "4%" , fontSize: "1.3rem", fontWeight: "bold"}} align="left"> To heal your Money Blocks, <Link style={{color:'blue'}} target="_blank" href="https://amzn.to/3JRdtWT">pre-order your copy of Naked Money Meetings</Link> today</Typography>
+                <Typography sx={{mt: "4%", mb: "4%" , fontSize: "1.3rem", fontWeight: "bold"}} align="left"> To heal your Money Blocks, <Link style={{color:'blue'}} target="_blank" href="https://amzn.to/40HzEFa">Order your copy of Naked Money Meetings</Link> today</Typography>
 
             </Grid>
         </Box>

@@ -59,7 +59,7 @@ const Header = () => {
             <Grid justifyContent="center" container={true}>
                 <Grid xs={12}>
                     <Box backgroundColor='primary.main'>
-                        <Link className='buy-books' target="_blank" href="https://amzn.to/3JRdtWT" variant='h6' style={{ color: 'white' }}>ORDER ERIN'S BOOK HERE!</Link>
+                        <Link className='buy-books' target="_blank" href="https://amzn.to/40HzEFa" variant='h6' style={{ color: 'white' }}>ORDER ERIN'S BOOK HERE!</Link>
                     </Box>
                 </Grid>
                 <Grid xs={6} sx={{mt:4}}>
@@ -75,14 +75,14 @@ const Header = () => {
                         <FormControl>
                             <br />
                             <Grid container={true} justifyContent="center">
-                                <Grid xs={12} sx={{ marginTop: 2 }}>
+                                <Grid sm={12} sx={{ marginTop: 2 }}>
                                     <Typography className='font-quiz'>{stateNo === 9 ? `In a relationship?` : `What is your Money Block?`}</Typography>
                                     <br />
                                     <br />
-                                    <Grid alignItems="center" container={true}>
-                                        <Grid md={6} xs={6}><Typography variant="h6" sx={{ fontFamily: "'Montserrat', sans-serif !important;", fontWeight: "bold", marginBottom: "5%" }}>Send this quiz to your partner</Typography></Grid>
-                                        <Grid md={6} xs={6}>
-                                            <TextField sx={{ width: "95%" }} required type='email' placeholder='Enter partner’s email' onChange={enterEmail} />
+                                    <Grid alignItems="left" container={true}>
+                                        <Grid lg={7} xs={7}><Typography sx={{ fontFamily: "'Montserrat', sans-serif !important;", fontWeight: "bold", marginBottom: "5%", fontSize: '20px', paddingTop: '4%' }}>Send this quiz to your partner</Typography></Grid>
+                                        <Grid md={5} xs={5}>
+                                            <TextField sx={{width: '110%'}} required type='email' placeholder='Enter partner’s email' onChange={enterEmail} />
                                             <FormHelperText id="my-helper-text">We’ll never share their email address.</FormHelperText>
                                         </Grid>
                                     </Grid>
@@ -99,7 +99,7 @@ const Header = () => {
 
             {/* last dialog box, for the user to view the book  */}
             <Dialog fullWidth={true} maxWidth={"sm"} open={userBookViewModal} onClose={()=>{setUserBookViewModal(false)}}>
-                <DialogTitle align="left"> To heal your Money Blocks, <Link style={{color:'blue'}} onClick={()=> {setUserBookViewModal(false)}} target="_blank" href="https://amzn.to/3JRdtWT">pre-order your copy of Naked Money Meetings</Link> today</DialogTitle>
+                <DialogTitle align="left"> To heal your Money Blocks, <Link style={{color:'blue'}} onClick={()=> {setUserBookViewModal(false)}} target="_blank" href="https://amzn.to/40HzEFa">Order your copy of Naked Money Meetings</Link> today</DialogTitle>
                 <DialogContent align="right">
 
                     {/* <Button variant="contained">
