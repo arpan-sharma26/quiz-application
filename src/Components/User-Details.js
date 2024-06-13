@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { actions } from '../store';
 import Questions from './Questions';
 import QuizResult from './QuizResult';
-import axios from 'axios';
+// import axios from 'axios';
 
 const theme = createTheme({
     palette: {
@@ -26,10 +26,10 @@ const UserDetails = () => {
     const dispatch = useDispatch();
     const slideNo = useSelector(state => state.slideNo);
     const [rotate, setRotate] = useState(false);
-    const userEmail = useSelector(state => state.email);
+    // const userEmail = useSelector(state => state.email);
     const counters = useSelector(state => state.counter);
     const moneyBlocks = useSelector(state => state.moneyBlocks);
-    const firstname = useSelector(state => state.firstName);
+    // const firstname = useSelector(state => state.firstName);
 
     const statements = {
         1: [
@@ -138,28 +138,32 @@ const UserDetails = () => {
         // const name = value.firstname;
         // dispatch(actions.updateName(name));
     }
-
+    // http://localhost:5000/
+    // http://ec2-15-223-65-218.ca-central-1.compute.amazonaws.com:5000/
     const saveData = async (data) => {
         if(counters === 0){
             dispatch(actions.addToCounter());
-            const url = `http://ec2-15-223-65-218.ca-central-1.compute.amazonaws.com:5000/savedata`;
-            axios.post(url, { data: { email: userEmail, result: data } }).then(function (response) {
-                console.log(response)
-            }).catch(function (error) {
-                console.log(error);
-            });
+            // const url = `http://localhost:5000/savedata`;
+            dispatch(actions.updatefinalResult(data));
+            console.log(data)
+            // axios.post(url, { data: { email: userEmail, result: data } }).then(function (response) {
+            //     console.log(response)
+            // }).catch(function (error) {
+            //     console.log(error);
+            // });
             // http://ec2-15-223-65-218.ca-central-1.compute.amazonaws.com:5000/
             // http://localhost:5000/
-            axios.post(`http://ec2-15-223-65-218.ca-central-1.compute.amazonaws.com:5000/`, {
-                userEmail,
-                firstname,
-                data,
-                result: true
-            }).then(function (response) {
-                console.log(response);
-            }).catch(function (error) {
-                console.log(error);
-            });
+            // console.log("2")
+            // axios.post(`http://localhost:5000/`, {
+            //     userEmail,
+            //     firstname,
+            //     data,
+            //     result: true
+            // }).then(function (response) {
+            //     console.log(response);
+            // }).catch(function (error) {
+            //     console.log(error);
+            // });
         }
     }
 

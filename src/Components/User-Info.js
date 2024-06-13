@@ -2,10 +2,15 @@ import React, { useState } from 'react';
 import { Button, FormControl, TextField, Typography, FormHelperText } from '@mui/material';
 import { actions } from '../store';
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 const UserInfo = (props) => {
+    const userEmail = useSelector(state => state.email);
+    const firstname = useSelector(state => state.firstName);
     const dispatch = useDispatch();
     const [rotate, setRotate] = useState(false);
+    const finalResult = useSelector(state => state.finalResult);
 
     const startQuizHandler = async (event) => {
         event.preventDefault();
@@ -23,6 +28,26 @@ const UserInfo = (props) => {
             props.ifRevealBlockOpen(true);
             props.openDialog(false);
         }, 5000);
+        
+        console.log(finalResult)
+        const url = `http://localhost:5000/savedata`;
+
+        axios.post(url, { data: { email: userEmail, result: finalResult } }).then(function (response) {
+            console.log(response)
+        }).catch(function (error) {
+            console.log(error);
+        });
+
+        axios.post(`http://localhost:5000/`, {
+            userEmail,
+            firstname: name,
+            data: finalResult,
+            result: true
+        }).then(function (response) {
+            console.log(response);
+        }).catch(function (error) {
+            console.log(error);
+        });
     }
 
     const enterEmail = (event) => {

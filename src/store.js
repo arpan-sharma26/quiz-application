@@ -5,6 +5,7 @@ const animationSlice = createSlice({
     initialState: {
         firstName: "",
         slideNo: 0,
+        finalResult: null,
         sliderValues: [
         {
             1: null,
@@ -82,6 +83,9 @@ const animationSlice = createSlice({
         },
         updateName(state, action){
             state.firstName = action.payload;
+        },
+        updatefinalResult(state, action){
+            state.finalResult = action.payload;
         },
         storeEmail(state, action){
             state.email = action.payload;
