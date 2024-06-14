@@ -35,9 +35,9 @@ const Header = () => {
         event.preventDefault();
         setSendingEmail(true);
         console.log(email);
-        // http://ec2-15-223-65-218.ca-central-1.compute.amazonaws.com:5000/
+        // http://ec2-3-97-15-119.ca-central-1.compute.amazonaws.com:5000/
         // http://localhost:5000/
-        axios.post(`http://localhost:5000/`, {
+        axios.post(`http://ec2-3-97-15-119.ca-central-1.compute.amazonaws.com:5000/`, {
             email,
             firstname
         }).then(function (response) {

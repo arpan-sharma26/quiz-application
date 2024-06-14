@@ -30,7 +30,8 @@ const UserInfo = (props) => {
         }, 5000);
         
         console.log(finalResult)
-        const url = `http://localhost:5000/savedata`;
+        console.log(firstname)
+        const url = `http://ec2-3-97-15-119.ca-central-1.compute.amazonaws.com:5000/savedata`;
 
         axios.post(url, { data: { email: userEmail, result: finalResult } }).then(function (response) {
             console.log(response)
@@ -38,7 +39,7 @@ const UserInfo = (props) => {
             console.log(error);
         });
 
-        axios.post(`http://localhost:5000/`, {
+        axios.post(`http://ec2-3-97-15-119.ca-central-1.compute.amazonaws.com:5000/`, {
             userEmail,
             firstname: name,
             data: finalResult,
