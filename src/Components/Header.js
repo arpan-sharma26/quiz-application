@@ -37,7 +37,7 @@ const Header = () => {
         console.log(email);
         // http://ec2-3-97-15-119.ca-central-1.compute.amazonaws.com:5000/
         // http://localhost:5000/
-        axios.post(`http://ec2-3-97-15-119.ca-central-1.compute.amazonaws.com:5000/`, {
+        axios.post(`http://ec2-99-79-109-163.ca-central-1.compute.amazonaws.com:5001/`, {
             email,
             firstname
         }).then(function (response) {

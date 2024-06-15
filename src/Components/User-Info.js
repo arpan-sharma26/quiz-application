@@ -31,15 +31,15 @@ const UserInfo = (props) => {
         
         console.log(finalResult)
         console.log(firstname)
-        const url = `http://ec2-3-97-15-119.ca-central-1.compute.amazonaws.com:5000/savedata`;
+        const url = `http://ec2-99-79-109-163.ca-central-1.compute.amazonaws.com:5001/savedata`;
 
-        axios.post(url, { data: { email: userEmail, result: finalResult } }).then(function (response) {
+        await axios.post(url, { data: { email: userEmail, result: finalResult } }).then(function (response) {
             console.log(response)
         }).catch(function (error) {
             console.log(error);
         });
 
-        axios.post(`http://ec2-3-97-15-119.ca-central-1.compute.amazonaws.com:5000/`, {
+        await axios.post(`http://ec2-99-79-109-163.ca-central-1.compute.amazonaws.com:5001/`, {
             userEmail,
             firstname: name,
             data: finalResult,
